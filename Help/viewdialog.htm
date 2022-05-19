@@ -1,0 +1,105 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html">
+</head>
+
+<body>
+
+<H3>View Control Dialog</H3>
+
+This dialog may be opened from within <a href="objectdialog.htm">object dialog</a>
+if the object is an OLE control, that is, it exposes interface IOleObject, or if it
+exposes at least IViewObject interface.<BR>&nbsp;<BR>
+
+<IMG SRC="viewcontroldialog.gif" Border=2><BR>&nbsp;<BR>
+
+Not all controls will have exciting visual effects
+though.Sometimes you may see nothing at all. But some controls may require to
+be placed inside a container (or, technically spoken, having an IOleClientSite
+interface pointer available). Without that they may produce errors or strange
+results when a <a href="propertiesdialog.htm">properties dialog</a> is opened (the MS Data Grid control
+is such an example).
+
+<BR>&nbsp;<BR>
+
+Available menu commands are:
+
+<BR>&nbsp;<BR>
+
+File Menu
+<UL>
+<LI><B>Load from a File</B>: this command will try to reinitialize object by calling
+IPersistFile:Load. The user will be prompted for a filename to load. Reinitialization may
+work for some objects, but others may refuse this action. 
+</LI>
+<LI><B>Save in a Stream</B>: saves control's state in a global memory stream. 
+Possibly object can later be reopened with main menu command
+<a href="mainwindowmenu.htm#FileSubMenu">Load Object from Stream</a>.
+Purpose of this command is to test implementation of <i>Save</i> and <i>Load</i> methods
+of IPersistStreamInit interface.
+</LI>
+<LI><B>Save in a Storage</B>: saves object's state in a storage object.
+If no storage object is assigned to the object, it will be saved to temporary storage object.
+Possibly object can be created again later from inside <a href="viewstoragedialog.htm">view storage dialog</a>,
+which in turn may be opened with commands <a href="mainwindowmenu.htm#FileSubMenu">Open Storage</a>
+or <a href="mainwindowmenu.htm#FileSubMenu">View temporary Storage</a>.
+<font color="red">Please note: COMView will always create or open storage objects in transacted mode
+and never execute a commit automatically. So you will loose changes made until you deliberately do a <i>commit</i>
+in <a href="viewstoragedialog.htm">view storage dialog</a></font>.
+Purpose of this command is to test implementation of <i>Save</i> and <i>Load</i> methods
+of IPersistStorage interface.
+</LI>
+<LI><B>Save in a File</B>: saves control's state in a file with IPersistFile::Save. 
+One may luckily reopen object with main menu command
+<a href="mainwindowmenu.htm#FileSubMenu">Bind to File</a>.
+</LI>
+<LI><B>Save in a Property Bag</B>: saves control's state by calling IPersistPropertyBag::Save.
+</LI>
+
+<LI><B>Exit</B>: Closes this window. This command may put server into loaded state.
+</LI>
+</UL>
+Actions Menu
+<UL>
+<LI><B>DoVerb</B>: call one of IOleObject::DoVerb methods.
+</LI>
+<LI><B>Close</B>: call IOleObject::Close method. After this call object should be in <i>loaded</i> state.
+</LI>
+<LI><B>Deactivate</B>: call IOleInPlaceObject::InPlaceDeactivate method.
+</LI>
+<LI><B>UIDeactivate</B>: call IOleInPlaceObject::UIDeactivate method.
+In response to this command object should deactivate its user interface (composite menus and border space.
+</LI>
+<LI><B>Update</B>: call IOleObject::Update method.
+</LI>
+<LI><B>Advise (IOleObject)</B>: call IOleObject::Advise/Unadvise method.
+</LI>
+<LI><B>Advise (IViewObject)</B>: call IViewObject::SetAdvise method.
+</LI>
+<LI><B>Advise (IDataObject)</B>: call IDataObject::DAdvise/DUnadvise method.
+</LI>
+</UL>
+Options Menu
+<UL>
+<LI><B>Filename in Caption</B>: if switch is on current filename - if available by a file moniker or IPersistFile::GetCurFile -
+will be added to window caption. <font color="blue">Please note that some popular controls have problems with method
+IPersistFile::GetCurFile. That's why this option is off by default and is not saved.</font>
+</LI>
+<LI><B>Object</B>: opens <a href="objectdialog.htm">object dialog</a>.
+</LI>
+<LI><B>Properties</B>: opens <a href="propertiesdialog.htm">properties dialog</a>.
+</LI>
+<LI><B>Storage</B>: command is enabled if a storage is assigned to the object.
+A <a href="viewstoragedialog.htm">view storage dialog</a> will be opened.
+</LI>
+<LI><B>TypeInfo</B>: opens <a href="typeinfodialog.htm">type information dialog</a>.
+</LI>
+</UL>
+
+View <a href="optionsdialog.htm#OptionsViewControl">view control options</a> for a
+description of options concerning <i>view control</i> dialog.
+
+</body>
+
+</html>

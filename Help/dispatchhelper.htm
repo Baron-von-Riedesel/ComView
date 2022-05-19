@@ -1,0 +1,74 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html">
+</head>
+
+<body>
+
+
+<H3>Generating ASM Dispatch Helper Include Files</H3>
+
+<H4>IDispatch Basic Support</H4>
+
+In <a href="typelibdialog.htm">type library dialog</a> you may
+tell COMView with button <i>Create Dispatch Helper</i> to generate ASM
+includes for support of dispatchonly interfaces. Such interfaces supply a
+vtable for IDispatch interface only, the rest of the methods has to be called
+by using IDispatch::Invoke. The dispatch helper includes
+hide this tedious work, allowing the developer to call all methods like
+those accessible through vtables. The steps to do are:<BR>
+<UL>
+<LI>
+Open <a href="typelibdialog.htm">type library dialog</a> for the type library
+you are interested in.</LI>
+<LI>Generate dispatch helper includes by pressing button <i>Create Dispatch Helper</i>.</LI>
+
+<LI>Ensure the basic includes listed in <a href="asmincludes.htm">Generating Include Files</a> 
+as well as DISPHLP.INC (this file can be found in the WebBrowserSample package) are inserted in the source.</LI>
+
+<LI>Include line &quot;DEFINE_INVOKEHELPER&quot; somewhere in the source code.</LI>
+
+<LI>Call methods of dispatch interfaces via macro dm().</LI>
+
+</UL>
+
+<H4>Support for Events (both client and server)</H4>
+
+The dispatch helper includes can as
+well be used to implement event sinks without having to deal with connection
+points and IDispatch. In short, you just define the events you are interested
+in and code the event procs, which in turn look exactly as they are described
+in the type library. For details about this feature see include file
+DISPHLP.INC.<BR>
+As well, macro FIREEVENT() in DISPHLP.INC uses dispatch helper includes. By using
+it, fireing an event requires just one line of code. For details about this
+feature see include file DISPHLP.INC.<BR>
+
+
+<H4>Other Things to mention</H4>
+
+<UL>
+
+<LI>With option <B>Generate dispatch helper includes for dual interfaces</B> in
+<a href="optionsdialog.htm#OptionsTypeLib">typelib options</a> the extent of
+include generation may be influenced.
+</LI>
+
+<BR>&nbsp;<BR>
+
+<LI>
+A sample &quot;WebBrowserApp&quot;
+is supplied with COMView showing all the degrees - including events - of COM
+support supplied. This source is commented fairly detailed.</LI>
+
+<BR>&nbsp;<BR>
+
+<LI>
+The dispatch include has a
+trailing &quot;c&quot; in its name to distinguish it from the standard
+&quot;vtable&quot; include.</LI>
+
+</body>
+
+</html>

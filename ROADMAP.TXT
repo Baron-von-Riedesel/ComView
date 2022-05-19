@@ -1,0 +1,433 @@
+
+Roadmap for COMView
+
+Pty Vers Status Text
+-------------------------------------------------------------------------------
+02  1.6  done   IEnumVARIANT support (properties dialog). Display resulting
+                    collections in a dialog
+
+03  1.6  done   show variant type of item in collection dialog
+
+03  1.6  done   if property is a BSTR, show/edit it in a "detail" window if string 
+                    is not really suitable for in-line-editing (size > 128)
+         done   do the same if string contains CR or LF.
+         impl   do the same if a method returns such a string (read only then) 
+
+03  1.6  done   save some options in private profile file
+
+03  1.6  done   find memory leaks (switching tab in properties dialog)
+                    problems were: deleteing listview columns before deleting items +
+                    not clearing EXCEPINFO structure in all cases
+
+04  1.6             make test app which implements:
+         done   - returning IDispatch property + method
+                - returning IUnknown property + method
+         done   - returning BSTR
+         done   - accepting BSTR as Parameter (VARIANTARG)
+         done   - property with parameter
+                - SAFEARRAY as parameter
+                - cause exception on PROPERTYGET, PROPERTYPUT, METHOD
+                - returning an IEnumVariant
+         done   - VT_BYREF | VT_VARIANT parameter
+
+03  1.6  done   Bug: Find error "no typeinfo available" (selecting winword winbasic)
+
+03  1.6  done   display default name (MEMBERID=0) of IDispatch in properties dialog caption
+
+03  1.6  done   put all IDispatch::Invoke in properties dialog in 1 guarded proc
+
+03  1.6  done   "Run" in object dialog: no action if object is already "running"
+         done   Show "wait" cursor while object becomes "running".
+         done   If object is made "running", refresh interface list
+
+03  1.6  done   bug: edit mode in properties listview doesnt terminate if tab is clicked.
+                    (problem: no WM_KILLFOCUS received, workaround implemented)
+
+03  1.6  done   broadcast message if properties/typeinfo/viewctrl dialogs are destroyed
+
+03  1.6  done   "explore" mode in collection dialog which will show details about
+                    the currently selected item.
+
+03  1.6  done   refresh in properties dialog shouldnt change listview top index
+
+02  1.6  done   bug: typeinfo TKIND_INTERFACE is not handled correctly. The retval
+                    parameter should be ignored by CParamsDlg, as well as a lcid parm
+
+03  1.6  done   ExcepInfo description displayed in status bar of properties dialog
+
+
+03  1.6  done   caption of "properties" window: avoid text "properties" (NaN)
+
+03  1.6  done   some _NewEnum return a IDispatch, not a IUnknown. Check DISPID in this
+                    case, and open collection dialog if properties dialog creation failed
+                    (example: MS Toolbar)
+
+03  1.6  done   avoid to activate "object dialog" when starting "properties dialog" from
+                    "view control" dialog
+
+03  1.6  done   simple listview dialog to show logs (from CContainer's IDispatch)
+                     to be started from main menu
+
+03  1.6  done   bug: if typelib dialog called from properties dialog, ASM include
+                     creation doesnt work. Second open of typelib dialog doesnt work
+
+04  1.6  done   context menu for properties dialog (edit/execute + typeinfo)
+
+04  1.6  done   "Log Window" displaying events.
+
+04  1.6  done   support for outgoing interfaces. New "connect" menu item for
+                   IConnectionPointContainer interface. 
+
+04  1.6  done   menu item "disconnect" for IConnectionPointContainer interface. 
+
+04  1.6  done   event sink IPropertyNotifySink supported
+
+04  1.6  done   option "synchonize typeinfo" made superflous due to context menu
+                    in "properties" dialog.
+
+04  1.6  done   option "usermode" made persistent
+
+04  1.6  done   describe event support in comview.rtf
+
+03  1.6  done   array of variants may jump in in-place-edit mode. that's ok, but text
+                    "[array of variants]" should disappear (excel, Range)
+
+04  1.6  done   about box and help text separated in 2 menu items. help text richedit
+                    window made resizeable.
+
+04  1.6  done   show properties returning SAFEARRAYs
+
+04  1.61 done   edit properties returning SAFEARRAYs
+
+04  1.61 done   exceptions during scanning properties (on init properties dialog)
+                    will display option to abort scan.
+
+-------------------------------------------------------------------------------
+
+04  1.7  done   in object dialog: nondispatch interfaces shouldnt have "properties"
+                    menu item enabled (example "DataSource" of WebCalc)
+
+04  1.7  done   "properties" dialog: data member "properties" are shown (i.e. IFont)
+
+04  1.7  done   OLEView viewer support
+
+04  1.7  done   special interface viewers in object dialog: 
+                    IDataObject showing EnumFORMATETC (if OLEView not installed)
+                    ISpecifyPropertyPages showing property pages
+                    IOleWindow showing HWND
+
+04  1.7  done   IAdviseSink support in "view control" dialog
+
+04  1.7  done   support for VK_APPS (showing context menu)
+
+04  1.7  done   implement a status line in "view control" dialog
+
+04  1.7  done   container supports windowless activation
+
+04  1.7  done   implement sorting in properties dialog
+
+04  1.7  done   implement sorting in typeinfo dialog
+
+04  1.7  done   display icons for top level dialogs
+
+04  1.7  done   drag & drop support
+
+04  1.7  done   ASM includes may be written to clipboard
+
+-------------------------------------------------------------------------------
+
+04  1.8  done   menu items "Register Server", "Unregister Server", "Explore", "Properties"
+
+04  1.8  done   bindable property values in properties dialog updated automatically
+                    if connected by IPropertNotifySink.
+
+04  1.8  done   when connection is established in object dialog the corresponding line
+                    in outgoing interfaces becomes green.
+
+04  1.8  done   AppId entry added when editing CLSID entries
+
+04  1.8  done   far better and more reliable file link check
+
+-------------------------------------------------------------------------------
+
+04  1.9  done   display "running objects table" (ROT)
+
+04  1.9  done   display some more infos in caption of "view control" window
+
+04  1.9  done   use DefaultIcon entry to show "class icon" in object/view/properties dialogs
+
+04  1.9  done   show vtable of an interface.
+
+04  1.9  done   implement "true" help file (compiled html format)
+
+-------------------------------------------------------------------------------
+
+04  2.0  done   "Edit" command available in typelib dialog
+
+04  2.0  done   select all shortcut Ctrl+A, remove shortcut Ctrl+X
+
+04  2.0  done   right-clicking listview header opens menu to select userdef. column
+
+04  2.0  done   ProgId + file link checks for HKCR view
+
+04  2.0  done   Edit OLE settings
+
+04  2.0  done   help context sensitive
+
+04  2.01 done   support REG_MULTI_SZ in registry editor
+
+-------------------------------------------------------------------------------
+
+04  2.1  done   remember listview column widths if user has modified one of them
+
+04  2.1  done   include variables of type VAR_DISPATCH in dispatch helper includes
+
+04  2.1  done   OleGetClipboard command to view content of clipboard
+
+04  2.1  done   Improved support for embedded objects in OLE container
+                   (composite menus and border space). Activation with 
+				   IOleObject::DoVerb changed (first try to INPLACEACTIVATE, then
+				   SHOW)
+
+04  2.1  done   UIDeactivate + userdefined verbs added to view control menu
+
+04  2.1  done   status bar of object dialog shows running state of object
+
+04  2.1  done   optionally CLSIDs in AutoConvertTo and TreatAs subkeys included in
+                   registry editor dialog. 
+
+04  2.1  done   check if IMultiQI works correctly (has a bug in XP)
+
+04  2.1  done   userdefined column for interface view
+
+04  2.1  done   [Interfaces] section in COMView.ini
+
+-------------------------------------------------------------------------------
+
+04  2.2  done   "save to (temporary) storage" in ole container supported
+
+04  2.2  done   "save to file" command in ole container supported
+
+04  2.2  done   properties of type VAR_DISPATCH may be edited now
+
+04  2.2  done   edit menu command "Get Class Factory" shows class factory in object dialog
+
+04  2.2  done   file menu command "Bind to File" to view object in object dialog
+
+04  2.2  done   context menu if files have been dropped with right mouse button
+
+04  2.2  done   internal interface viewer for IClassFactory2 and IPersistFile
+
+04  2.2  done   context menu for header of listview in collection dialog
+                    if items are of type IDispatch. User may select a property
+                    which will then be shown in Value column
+
+04  2.2  done   implement DDE support and COMView rectricted to one instance
+
+04  2.2  done   container support for IOleDocumentSite
+
+03  2.2  done   include KetilO's Hex editor, so no 16 byte limit for REG_BINARY 
+                    anymore
+
+04  2.2  done   IStorage file viewer, uses hex editor
+
+04  2.2  done   filename may be displayed in container window caption
+                    if object supports IPersistFile
+
+04  2.2  done   container support for IOleCommandTarget
+
+-------------------------------------------------------------------------------
+
+04  2.3  done   bug fixed: storage viewer may handle streams in substorages
+
+04  2.3  done   hex editor shows selection in gray if focus lost
+
+04  2.3  done   bug fixed: hex editor may handle items > 128 MB
+
+04  2.3  done   file menu items "Open Storage" and "View temporary Storage"
+
+04  2.3  done   file menu items "Open Stream" and "View temporary Stream"
+
+04  2.3  done   buttons "Create Object", "Save As", "Revert" and "Object" added
+                    to view storage dialog
+
+04  2.3  done   "Create Object" in view storage dialog works with streams.
+                    call WriteClassStm added if object is saved with IPersistStreamInit
+
+04  2.3  done   "Create Object" + "View Properties" added to context menu of view storage dialog
+
+04  2.3  done   "Open Storage" + "Open Stream" commands added to drop target context menu 
+
+04  2.3  done   if file isnt a typelib in "smart mode", it will be opened as stream
+
+04  2.3  done   viewers for interface IPropertySetStorage and IPropertyStorage
+
+04  2.3  done   OLE container supports IOleClientSite::GetMoniker. call
+                    IPersistStorage::SaveCompleted after save operation
+
+04  2.3  done   OLE container supports save to property bags with IPersistPropertyBags
+
+04  2.3  done   multiple connections to an object and an interface from within 
+                    object dialog. So no more need for multiple instances of object dialog.
+
+04  2.3  done   connections remain alive if object dialog is closed. Server keeps in
+                    running state as long as a connection is alive.
+
+04  2.3  done   bug fixed: some notifications still used OutputDebugString and therefore get
+                    lost. Changed to printf@CNotificationDlg
+
+-------------------------------------------------------------------------------
+
+01  231  done   Bug fix:PropStgNameToFmtId function not defined in OLE32 for Win9x systems.
+                    changed to dynamic load.
+
+-------------------------------------------------------------------------------
+
+03  2.4  done   Bug fix: Save in a Storage command works in all cases
+
+04  2.4  done   Bug fix: linked objects correctly rendered
+                     (wrong lindex param for IViewObject::Draw)
+
+04  2.4  done   interface viewer for IOleLink
+
+04  2.4  done   new context menu command "View Moniker" for objects view
+
+04  2.4  done   new columns "IMoniker Display Name" + "Connections" in objects view
+
+04  2.4  done   hex editor clipboard handling changed (CF_TEXT + private format)
+
+04  2.4  done   "View" + "Play" in EnumFormatETC dialog (IDataObject viewer)
+
+04  2.4  done   jump to view storage dlg from view object dialog
+
+-------------------------------------------------------------------------------
+04  2.5  done   Rewrite button in view storage dialog
+
+04  2.5  done   nodispatchable types now fully supported by properties dialog
+
+03  2.5  done   bug fix: collection dialog shows correct item after resort
+
+04  2.5  done   support for load from IPersistPropertyBag
+
+04  2.5  done   optional support for IPersistFile::Load
+
+04  2.5  done   interface IPropertyBag implemented, so IPersistPropertyBag works 
+                    for Win9x
+
+04  2.5  done   menu item "copy object to clipboard" in object dialog
+
+04  2.5  done   button "paste object" in params dialog
+
+04  2.5  done   type of parameter selectable in params dialog
+
+04  2.5  done   status line in params dialog
+
+04  2.5  done   status line in IPropertyStorage viewer
+
+04  2.5  done   detailed view in IPropertyStorage viewer for large BSTRs
+
+04  2.5  done   main dialog: dont refresh document if view changes.
+
+04  2.5  done   main dialog: remember sort column/direction until refresh.
+
+04  2.5  done   rename function in view storage dialog
+
+03  2.5  done   bug fix: view control dialog disappeared if option 
+                     "show as top level window" wasn't set
+
+-------------------------------------------------------------------------------
+
+03  2.6  done   workaround: properties of type VT_BOOL having a parameter
+                     arent displayed in properties dialog (example SHGINA).
+					 currently displayed in a message box
+
+04  2.6  done   typelib dialog resizeable
+
+04  2.6  done   help context from typeinfo displayed
+
+04  2.6  done   [out] parameters are disabled in params dialog. Such parameters
+                are pointers, COMView allocates some memory to store value
+
+04  2.6  done   new columns [RusAs] and [AuthLevel] for AppId view
+
+04  2.6  done   new edit menu command FindAll
+
+-------------------------------------------------------------------------------
+
+04  2.7  done   bitmaps showing sort column and sort direction
+
+04  2.7  done   typeinfo dialog resizeable
+
+04  2.7  done   /OUT: commandline option
+
+04  2.7  done   function Unregister added to drop handler popup menu
+
+04  2.7  done   new menu item IClassFactory::CreateInstance in typeinfo context menu
+
+04  2.7  done   bug fix: inserting user column after deleting one now works without GPF.
+
+-------------------------------------------------------------------------------
+
+04  2.8  done   display userdefined enumeration types in an in-place combobox 
+
+04  2.8  done   bug fix: header control bitmaps vanished after a check function
+                     has been executed
+
+04  2.8  done   general option: Log to debugger window
+
+04  2.8  done   container option: Support IServiceProvider
+
+04  2.8  done   container option: use IQuickActivate if available
+
+04  2.8  done   container option: use IPersistPropertyBag if available
+
+04  2.8  done   container option: use IPersistStreamInit if available
+
+04  2.8  done   New dialog to view/edit/activate ambient properties
+
+04  2.8  done   structured exception handling: new dialog to let user select next action 
+
+04  2.8  done   object dialog: more infos stored for each interface. So COMView knows
+                     default interfaces even if object dialog was created from CLSID view
+
+-------------------------------------------------------------------------------
+03  2.9  done   bug: [out] parameters shouldnt be displayed in params dialog.
+                     these are pointers in all cases.
+
+-------------------------------------------------------------------------------
+
+03              bug: properties of type VT_BOOL having a parameter
+                     arent displayed in properties dialog (example SHGINA)
+			         since DBLCLK tries to switch value and editing is not allowed
+
+04              make option "open properties dialog for methods returning IDispatch"
+                    local in "properties" dialog
+
+04              avoid to enter edit mode for readonly properties (properties dialog)
+                    make readonly attribute of properties visible in properties dialog
+
+-------------------------------------------------------------------------------
+
+                macro generator (NaN's suggestion). track user action
+                eventually translate it in ASM code.
+
+                object dialog redesign: avoid scanning all interfaces (winword bug)
+                possibly use type information for a table of interesting interfaces?
+                outgoing interfaces as menu item for IConnectionPointContainer?
+
+                specific support for some interfaces in object dialog/properties dialog:
+                IProvideClassInfo2 (default source), ICategorizeProperties
+
+                overcome parameter restriction
+
+                show object's place in object tree in a treeview. Possibly new tab in
+                properties dialog. Allow user navigation there
+
+                support for some OLE specific data types (OLE_COLOR)
+
+                disassemble methods if in-process server
+
+                update single lines in views after returning from "edit" registry dialog
+
+                implement "Back" function/button in "properties" dialog
+

@@ -1,0 +1,71 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html">
+</head>
+
+<body>
+
+
+<H3>Edit Registry Dialog</H3>
+
+This dialog implements a registry editor 
+which allows to view, change or delete the currently selected items.
+
+<BR>&nbsp;<BR>
+
+<IMG SRC="editdialog.gif" Border=2><BR>&nbsp;<BR>
+
+Please note that modifications of keys or values are
+made permanent if you select another line inside the dialog. The
+<i>Cancel</i> button will cancel the current edit operation, but it will
+NOT undo insertions, deletions or changes done so far!
+
+<BR>&nbsp;<BR>
+
+The editor is capable to edit registry entries of type REG_SZ (+REG_EXPAND_SZ),
+REG_MULTI_SZ, REG_DWORD and REG_BINARY. Items the editor cannot handle are displayed as '?'
+and cannot be edited of course.
+
+<BR>&nbsp;<BR>
+
+Another point to mention is that comparing Win9x with WinNT platforms
+there are some slight differences regarding registry functions. On Win9x systems
+there always exists a default value when calling RegQueryValueEx, but not when 
+enumerating values with RegEnumValue function. This is not the case on WinNT/2K/XP
+systems.
+
+
+<BR>&nbsp;<BR>
+
+<B>To avoid fatal damage
+you won't be allowed to delete entries <i>CLSID</i>, <i>Typelib</i>,
+<i>Interface</i> or <i>AppId</i></B>.
+
+<BR>&nbsp;<BR>
+
+What is shown in the editor depends on the view it has been started from.
+The additional keys listed below will be included only if they exist, of course.
+<UL>
+<LI><B>CLSID View</B>: referenced <i>TypeLib</i>, <i>ProgId</i>,
+<i>VersionIndependantProgId</i> and <i>AppId</i> entries will be included.
+This is especially useful if a CLSID shall be removed from registry.
+But be careful with these type of actions.
+The recommended way to remove a CLSID is to <i>unregister</i> the server.
+Removing CLSIDs manually should only be considered if the binary implementing
+the class is no longer available or is unable to unregister itself.
+</LI>
+<LI><B>Interface View</B>: referenced <i>TypeLib</i> and <i>CLSID</i> (in ProxyStubClsid32 subkey)
+keys will be included.
+</LI>
+<LI><B>AppId view</B>: Key in value <i>AppId</i> will be included.
+</LI>
+<LI><B>HKCR view</B>: referenced <i>CLSID</i> key will be included.
+If entry is a <i>file extension</i>, referenced <i>ProgId</i> in default value will be added.
+</LI>
+</UL>
+
+
+</body>
+
+</html>

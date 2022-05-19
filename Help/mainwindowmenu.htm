@@ -1,0 +1,212 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html">
+</head>
+
+<body>
+
+<H3>Main Menu</H3>
+
+
+<a name="FileSubMenu"><H4>File Submenu</H4></a>
+
+
+<IMG SRC="FileMenu.gif" Border=2><BR>&nbsp;<BR>
+
+<UL>
+<LI>
+<B>Load Type Library</B> allows to load a type
+library from a file, which is useful if that library isn't registered yet. 
+If successful, a <a href="typelibdialog.htm">type library dialog</a> will be opened.
+</LI>
+<LI>
+With <B>Register Server</B> one may select a DLL/EXE server object to
+register. For dlls that's in fact the same function provided by REGSVR32.EXE.
+Executables will be called by COMView with parameter '/RegServer',
+which is a convention only and there's no guarantee that registering will succeed this way.
+</LI>
+<BR>&nbsp;<BR>
+
+<LI>
+<B>Bind to File</B> will let the user choose a file, create a file moniker for it and then call
+IMoniker::BindToObject. If this is successful, a <a href="viewdialog.htm">view control dialog</a>
+or, if object doesn't support IOleControl, an <a href="objectdialog.htm">object dialog</a>
+will be opened.
+</LI>
+
+<LI>
+<B>Create Link to File</B> will create a link to a file and open an <a href="objectdialog.htm">object dialog</a>.
+</LI>
+
+<LI>
+<B>OleGetClipboard</B> will try to get an object from the clipboard. This may either be
+an IOleObject (if calls to OleQueryCreateFromData or OleCreateStaticFromData are
+successful) or a simple IDataObject object.
+In the first case an <a href="viewdialog.htm">view control dialog</a>,
+in the latter case an <a href="objectdialog.htm">object dialog</a> will be opened.
+</LI>
+
+<LI>
+<B>Shell Desktop Folder</B> command will create a desktop object with function SHGetDesktopFolder and
+open an <a href="objectdialog.htm">object dialog</a> to show it.
+</LI>
+
+<BR>&nbsp;<BR>
+
+<LI>
+<B>Open Storage</B> will try to open a file as a storage object with StgOpenStorage.
+If succeeded, a <a href="viewstoragedialog.htm">view storage dialog</a> will be opened.
+The storage will be opened in transacted mode.
+</LI>
+
+<LI>
+<B>View temporary Storage</B> will use temporary storage object to
+open a <a href="viewstoragedialog.htm">view storage dialog</a>. This command
+is disabled until a temporary storage object has been created. This will be the
+case if an object has to be saved and no storage is assigned to it.<BR>
+Please note that COMView will create only one temporary storage object and contents
+of this object will not be deleted automatically.
+</LI>
+
+<LI>
+<B>Open Stream</B> will try to open a file as a stream object. 
+This is done by reading file in memory and create a stream object with CreateStreamOnHGlobal.
+If succeeded, a <a href="viewstoragedialog.htm">view storage dialog</a> will be opened.
+</LI>
+
+<LI>
+<B>View temporary Stream</B> will open a <a href="viewstoragedialog.htm">view storage dialog</a>
+to show temporary stream created with CreateStreamOnHGlobal.
+This command will be enabled only if user has previously saved an
+object within <a href="viewdialog.htm">view control dialog</a> with command 
+<i>Save in a Stream</i>. So a server's implementation
+of IPersistStreamInit::Save and IPersistStreamInit::Load methods may be tested.
+</LI>
+
+<BR>&nbsp;<BR>
+
+<LI>
+<B>Save As</B> command will save current view in a file.
+</LI>
+<LI>
+<B>OLE/COM+ Settings</B> opens an <a href="editdialog.htm">edit registry dialog</a>
+to view general OLE settings in HKLM\Microsoft\Software\OLE and HKLM\Microsoft\Software\OLE3.
+</LI>
+<LI><B>Exit</B> command will terminate COMView.
+</LI>
+</UL>
+
+<a name="EditSubMenu"><H4>Edit Submenu</H4></a>
+
+<IMG SRC="EditMenu.gif"  Border=2><BR>&nbsp;<BR>
+<UL>
+<LI><B>Edit</B> will open an <a href="editdialog.htm">edit registry dialog</a> to
+view and possibly modify/delete registry entries.</LI>
+
+<LI><B>Copy</B> will copy currently selected lines to the clipboard.
+Only CF_TEXT clipboard format is supported.</LI>
+<LI><B>Copy GUID to Clipboard</B> will copy GUID of first selected line to the clipboard.
+</LI>
+<LI><B>Remove from View</B> will remove selected lines from view. Registry isn't changed, so
+removed items will reappear after next refresh.
+</LI>
+
+<LI><B>Create Instance</B> and <B>Create Instance On</B> will try to create a 
+COM object and open an <a href="objectdialog.htm">object dialog</a> if successful.
+<B>Create Instance On</B> will additionally ask for a machine name on which the object should be created.
+The CLSCTX (class context) flags used by these commands may be modified in 
+<a href="optionsdialog.htm#OptionsCLSID">CLSID options</a> (for <B>Create Instance On</B>
+flag CLSCTX_REMOTE_SERVER will always be set).
+</LI>
+
+<LI><B>Get Class Factory</B> will create a class factory object for selected CLSID and open
+an <a href="objectdialog.htm">object dialog</a> if successful. This command may be useful to
+see if interface IClassFactory2 is supported and if so, display its license information.
+</LI>
+
+<LI><B>View Type Library</B>
+will open a <a href="typelibdialog.htm">type library dialog</a>.</LI>
+
+<LI><B>Find</B>: opens a standard FindText dialog to search for a string in current view's columns.
+</LI>
+<LI><B>Find All</B>: opens a standard FindText dialog to search for all occurences of a string in current view's columns.
+Non-matching lines will be removed from view.
+</LI>
+<LI><B>Select All</B>: all items of current view are selected.
+</LI>
+<LI><B>Invert Selection</B>: the selection state of all items is inverted.
+</LI>
+
+<LI><B>Unregister Server</B>
+For dlls COMView will call exported function DllUnregisterServer if available.
+That's the same function as starting REGSVR32.EXE with option &quot;/U&quot;.
+First this function tries to load the server dll and searches for export DllUnregisterServer.
+Only if successful so far, a message box will pop up to confirm unregister operation. So
+this command may as well be used to test if dll can be loaded at all.<BR>
+For executables COMView will try to execute the server with parameter '/UnregServer'.
+This is a convention only and there is no guarantee that this call will in fact unregister the server.
+</LI>
+
+<LI><B>Explore</B> will try to open an explorer window showing folder of the
+current file object. If supported by OS, file object will be selected inside folder.
+Command is enabled only if a file objects exists, which may be true in CLSID, TypeLib and HKCR views. 
+</LI>
+
+<LI><B>Properties</B> will try to open an properties window for current file object.</LI>
+
+</UL>
+
+Some of these commands will be enabled only if the currently selected item will
+provide the information needed.<BR>
+
+<BR>&nbsp;<BR>
+
+<a name="ViewSubMenu"><H4>View Submenu</H4></a>
+
+<IMG SRC="ViewMenu.gif"  Border=2><BR>&nbsp;<BR>
+
+Most of the commands of this menu will switch to another view. These functions may as
+well accessed by selecting appropriate tab in main window. <B>Refresh</B> will
+refresh current list without changing view.
+
+<a name="SpecialSubMenu"><H4>Special Submenu</H4></a>
+
+<IMG SRC="SpecialMenu.gif"  Border=2><BR>&nbsp;<BR>
+
+<UL>
+<LI><B>Check File Links</B> will test existance of file objects in CLSID, TypeLib and HKCR views.
+But keep in mind that a successful test doesn't ensure that the correspondent object may be created (CLSID) 
+or opened (TypeLib). For HKCR view, value of column <i>Shell\Open\Command</i> will be used as name of file object.
+</LI>
+<LI><B>Check TypeLib Links</B> will test in CLSID and Interface views if type library GUID's subkey exists in  HKEY_CLASSES_ROOT\TypeLib.
+That doesn't ensure that this type library can be opened or even exists!
+</LI>
+<LI><B>Check CLSID Links</B> will test in HKCR and Interface views if CLSID entry exists in HKEY_CLASSES_ROOT\CLSID.
+</LI>
+<LI><B>Check ProgId Links</B> in CLSID view will try to open ProgId subkey in HKEY_CLASSES_ROOT.
+A broken link will still allow such objects to be created!
+In HKCR view this command checks associations of <i>file extension keys</i> (keys beginning with 
+'.') with their ProgIds.
+
+</LI>
+<LI><B>Check AppId Links</B> will test existance of correspondent subkeys in HKEY_CLASSES_ROOT\AppId.
+</LI>
+<LI><B>Show Logs</B> command will open 
+<a href="logwindow.htm">Log window</a>. 
+</LI>
+<LI><B>Ambient properties</B> command will open a dialog to edit ambient properties of control container.
+</LI>
+<LI><B>Options</B> command will open <a href="optionsdialog.htm">options dialog</a>.
+</LI>
+</UL>
+All <B>check</B> commands will scan lines of current view. If a link is broken, the
+correspondent line will be marked with a red cross. The total amount of broken
+links will be displayed in the status line. To step through all entries with
+broken links, press Ctrl+F3. Or press Ctrl+Y (invert selection), then Ctrl+X
+(remove from view) to remove the other, unbroken links.
+<BR>&nbsp;<BR>
+
+</body>
+
+</html>

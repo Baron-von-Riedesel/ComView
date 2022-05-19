@@ -1,0 +1,31 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html">
+</head>
+
+<body>
+
+<H3>Known Bugs and Restrictions</H3>
+
+<UL>
+<LI><B>Consistency Check</B>: In some rare cases command
+<a href="mainwindowmenu.htm#SpecialSubMenu">Check File Links</a>
+will report a broken link which in fact is not.</LI>
+
+<BR>&nbsp;<BR>
+
+<LI><B>ASM Includes</B>: If a method
+has more than 30 parameters (including <i>this</i>), MASM would complain
+about &quot;statement too complex&quot;. So in this case - and if size of
+parameter string is greater than 255 chars - the include generation process
+comments out that prototype, replacing it by a simple one with one parameter so
+the vtable offsets are calculated correctly.</LI>
+
+<LI><B>ASM Includes</B>: The order of
+STRUCTs in generated ASM include files sometimes may need to be rearranged a
+bit.</LI>
+
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html">
+</head>
+
+<body>
+
+<H3>Main Window Views</H3>
+
+COMView's main window will show one of several views selectable by tabs at the bottom
+of the window.
+<BR>
+
+<a name="ViewCLSID"><H4>CLSID View</H4></a>
+
+CLSID view lists subkeys of registry entry HKEY_CLASSES_ROOT\CLSID. Normally
+these subkeys are CLSIDs. Standard columns are
+<UL>
+<LI>Column <B>Text</B> is default value of CLSID subkey.</LI>
+<LI>For Columns <B>Type</B> and <B>Type Value</B> see description of option <i>CLSID Type Search
+Order</i> in <a href="optionsdialog.htm#OptionsCLSID">CLSID options</a>.</LI>
+<LI>Columns <B>ProgId</B> and <B>TypeLib</B> are subkeys of CLSID entry.</LI>
+</UL>
+
+A userdefined column is available for this view and will allow to easily recognize
+entries which are 'Controls', 'Automation Objects', 'Embeddable Objects' or whatever.
+To select a value for userdefined column from a predefined set right-click header 
+or open <a href="optionsdialog.htm#OptionsCLSID">CLSID options</a>.
+
+
+<a name="ViewTypeLib"><H4>TypeLib View</H4></a>
+
+TypeLib view lists subkeys of registry entry HKEY_CLASSES_ROOT\TypeLib. But that is
+not a 1:1 view of this subkey. COMView will display each version and each locale of
+a type library in its own line. So you may see lines with identical GUIDs in this view.
+<BR>
+
+<a name="ViewInterface"><H4>Interface View</H4></a>
+
+Interface view lists subkeys of registry entry HKEY_CLASSES_ROOT\Interface.
+Remember that COMView will only know interface IDs listed here if it scans an object
+for exposed interfaces.
+<BR>
+
+<a name="ViewAppId"><H4>AppId View</H4></a>
+
+AppId view will list subkeys of registry entry HKEY_CLASSES_ROOT\AppId.
+<BR>
+
+<a name="ViewCompCat"><H4>Component Category View</H4></a>
+
+This view will list subkeys of registry entry HKEY_CLASSES_ROOT\Component Categories.
+<BR>
+
+<a name="ViewHKCR"><H4>HKCR View</H4></a>
+
+HKCR view will list subkeys of registry root entry HKEY_CLASSES_ROOT.
+A userdefined column is available for this view and may be set by right-clicking header 
+or in
+<a href="optionsdialog.htm#OptionsHKCR">HKCR options</a>.
+<BR>
+
+<a name="ViewCreatedObjects"><H4>Created Objects View</H4></a>
+
+This view will show objects created by comview (with
+menu items <a href="mainwindowmenu.htm#EditSubMenu">Create Instance</a> and
+<a href="mainwindowmenu.htm#EditSubMenu">Create Instance On</a> for example).
+Edit submennu will therefore be changed and have some additional commands:<BR>
+<UL>
+<LI>
+<B>View Object:</B>: opens an <a href="objectdialog.htm#OptionsHKCR">object dialog</a>
+for this object.
+</LI>
+<LI>
+<B>Unlock Object:</B>: will unlock a previously locked object. If not used otherwise, object
+may be destroyed and will disappear afterwards.
+</LI>
+<LI>
+<B>View Moniker:</B>: will show the moniker itself in an <a href="objectdialog.htm#OptionsHKCR">object dialog</a>.
+Command will be enabled if a moniker exists, which is the case for example if object has been created by 
+file menu command <i>Bind to File</i>.
+</LI>
+</UL>
+
+<a name="ViewROT"><H4>ROT View</H4></a>
+
+This view will show entries in Running Object Table. Applications register itself
+there by RegisterActiveObject and unregister by RevokeActiveObject.
+Edit submennu will have additional command:<BR>
+<UL>
+<LI>
+<B>View Object:</B>: opens an <a href="objectdialog.htm#OptionsHKCR">object dialog</a>
+for this object.
+</LI>
+</UL>
+
+</body>
+
+</html>

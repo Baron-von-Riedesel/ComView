@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="HTML Help 4.00">
+<!-- Sitemap 1.0 -->
+</HEAD>
+<BODY>
+<OBJECT type="text/site properties">
+	<param name="FrameName" value="right">
+	<param name="Window Styles" value="0x800025">
+</OBJECT>
+<UL>
+
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="About COMView">
+		<param name="Local" value="about.htm">
+		</OBJECT>
+	</LI>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Installation">
+		</OBJECT>
+		<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Installation">
+			<param name="Local" value="installation.htm">
+			</OBJECT>
+		</LI>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Deinstallation">
+			<param name="Local" value="deinstallation.htm">
+			</OBJECT>
+		</LI>
+		</UL>
+	</LI>
+
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Main Window">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Menu">
+			<param name="Local" value="mainwindowmenu.htm">
+			</OBJECT>
+		</LI>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Views">
+			<param name="Local" value="mainwindowviews.htm">
+			</OBJECT>
+		</LI>
+	</UL>
+	</LI>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Dialogs">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Collection Dialog">
+			<param name="Local" value="collectiondialog.htm">
+			</OBJECT>
+		</LI>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Edit Registry Dialog">
+			<param name="Local" value="editdialog.htm">
+			</OBJECT>
+		</LI>
+
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Object Dialog">
+			<param name="Local" value="objectdialog.htm">
+			</OBJECT>
+		</LI>
+
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Options Dialog">
+			<param name="Local" value="optionsdialog.htm">
+			</OBJECT>
+		</LI>
+
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Properties Dialog">
+			<param name="Local" value="propertiesdialog.htm">
+			</OBJECT>
+		</LI>
+
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Type Information Dialog">
+			<param name="Local" value="typeinfodialog.htm">
+			</OBJECT>
+		</LI>
+
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Type Library Dialog">
+			<param name="Local" value="typelibdialog.htm">
+			</OBJECT>
+		</LI>
+
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="View Control Dialog">
+			<param name="Local" value="viewdialog.htm">
+			</OBJECT>
+		</LI>
+
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="View Storage Dialog">
+			<param name="Local" value="viewstoragedialog.htm">
+			</OBJECT>
+		</LI>
+
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Log Window">
+		<param name="Local" value="logwindow.htm">
+		</OBJECT>
+	</LI>
+
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="ASM Includes">
+		</OBJECT>
+		<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Generate Basic Includes">
+			<param name="Local" value="ASMIncludes.htm">
+			</OBJECT>
+		</LI>
+
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Generate Dispatch Helper Includes">
+			<param name="Local" value="DispatchHelper.htm">
+			</OBJECT>
+		</LI>
+		</UL>
+	</LI>
+
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Other Features">
+		<param name="Local" value="OtherFeatures.htm">
+		</OBJECT>
+	</LI>
+
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Known Bugs and Restrictions">
+		<param name="Local" value="KnownBugs.htm">
+		</OBJECT>
+	</LI>
+
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="History">
+		<param name="Local" value="history.htm">
+		</OBJECT>
+	</LI>
+
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="License">
+		<param name="Local" value="Licence.htm">
+		</OBJECT>
+	</LI>
+
+</UL>
+</BODY>
+</HTML>

@@ -1,0 +1,437 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html">
+</head>
+<body>
+<H3>History</H3>
+
+<UL><font size=-1>
+
+<LI>
+Version 0.9.9, 05/2001:
+displays registry entries of CLSID, Typelib, Interface. The
+consistency checks were implemented. Very simple registry edit capabilities
+implemented.
+</LI>
+
+<LI>
+Version 1.0.0, 07/2001:
+CoCreateInstance implemented - list of interfaces supported by
+the object is shown. Type libraries are displayed.
+</LI>
+
+<LI>
+Version 1.1.0, 01/2002:
+Integrated registry editor improved. Looks better and now it is
+possible to insert, delete and rename entries.
+</LI>
+
+<LI>
+Version 1.1.1, 03/2002:
+COMView shows function parameters in type info dialogs.
+</LI>
+
+<LI>
+Version 1.2.0, 06/2002:
+Creation of ASM include files implemented.
+</LI>
+
+<LI>
+Version 1.2.1, 06/2002:
+Ensured that COMView can be compiled with unmodified MASM32 and
+without VC installed.
+</LI>
+
+<LI>
+Version 1.3.0, 07/2002:
+Userdefined Column for HKCR tab.
+<i>Find</i> implemented.
+Consistency check displays images to show missing links.
+New Buttons <i>Register TypeLib</i> and <i>Unregister TypeLib</i>
+in type library dialog.
+To increase speed and to decrease memory consumption listviews changed
+to &quot;virtual&quot; style.
+New consistency check for ProgID in CLSID entries.
+File name of a type library as command line argument accepted.
+</LI>
+
+<LI>
+Version 1.4.0, 07/2002:
+DCOM support with CoCreateInstanceEx on remote machines.
+Menu redesigned.
+Userdefined column can be a key or a value.
+AppID consistency check implemented.
+</LI>
+
+<LI>
+Version 1.4.1, 07/2002:
+New option <i>query all interfaces with
+CoCreateInstanceEx</i> (later changed to <i>Use IMultiQI if available</i>)
+to speed up object creation on remote machines.
+</LI>
+
+<LI>
+Version 1.4.2, 12/2002:
+Improved &quot;user column&quot; option for HKCR tab.
+Check for CLSID links in HKCR.
+</LI>
+
+<LI>
+Version 1.4.3, 12/2002:
+Now the &quot;retval&quot; last parameter is always generated in ASM includes.
+</LI>
+
+<LI>
+Version 1.5.0, 01/2003:
+Generation of ASM stub files to simplify calling methods of
+dispatchonly interfaces. Second pass for ASM include generation. Now using
+referenced TKIND_INTERFACE typeinfo for dual TKIND_DISPATCH interfaces. Some
+new functions in <i>object</i> dialog. Edit registry dialog avoids duplicate
+entries, is resizeable and remembers last position and size now. Also has a new
+button <i>Toggle</i>. Value &quot;DllSurrogate&quot; in AppId dialog
+added.
+</LI>
+
+<LI>
+Version 1.5.1, 01/2003:
+ASM stub source files from version 1.5.0 were changed to
+&quot;dispatch helper&quot; include files, thus avoiding to add an extra source
+file to a project.
+</LI>
+
+<LI>
+Version 1.5.2, 01/2003:
+line &quot;DEFINE_INVOKEHELPER&quot; no longer inserted in
+&quot;dispatch helper&quot; include files.
+From HKCR view a type library dialog can be opened.
+A source sample &quot;WebBrowserApp&quot; has been included to
+show how to use the COMView generated includes.
+</LI>
+
+<LI>
+Version 1.5.3, 01/2003:
+All macros exclusively needed by &quot;dispatch helper&quot;
+includes moved from objbase.inc to disphlp.inc.
+Some other macros have been inserted in disphlp.inc for support of event sinks.
+Sample &quot;WebBrowserApp&quot; has been extended accordingly.
+</LI>
+
+<LI>
+Version 1.6.0, 02/2003:
+<i>Properties</i> dialog added.
+<i>View control</i> dialog added with OLE control container included.
+Type library's GUID and version are written as equates in ASM include.
+Bug fix: pointers in structures now correctly generated.
+Prototypes for static methods will be generated.
+New <i>Batch</i> mode command line option implemented.
+Some options now persistent, are written to a private profile file.
+<i>Log Window</i> added to display events from connected event sources.
+Source code of COMView is no longer available.
+</LI>
+
+<LI>
+Version 1.6.1, 02/2003:
+Userdefined columns made persistent.
+Properties of type Array may be edited.
+Bug in function <i>Create Instance On</i> fixed.
+</LI>
+
+<LI>
+Version 1.6.2, 02/2003:
+Strange bug - win9x systems only - fixed, which occured after
+closing COMView and caused system to &quot;hang&quot; for some time after copying
+data to the clipboard.
+</LI>
+
+<LI>
+Version 1.7.0, 03/2003:
+Drag&amp;Drop supported.
+Object container supports activation of windowless objects, implements interfaces IAdviseSink and IOleControlSite.
+OLEView's interface viewers supported and internal viewers for interfaces IDataObject, ISpecifyPropertyPages and IServiceProvider implemented.
+Now support for IUnknown objects in collection dialog and new option sets maximum of items being shown (internal constant of 2000 in previous versions).
+Listviews in <i>typeInfo</i> and <i>properties</i> dialogs support sorting.
+<i>Object</i> dialogs may be opened from within <i>properties</i> dialogs.
+Structures in ASM include file generation with correct syntax in all cases now.
+Include files may be written to the clipboard.
+<i>Object</i> options splitted in <i>object</i> and <i>properties</i>.
+</LI>
+
+<LI>
+Version 1.7.1, 03/2003:
+Bug in drop target handler fixed.
+</LI>
+
+<LI>
+Version 1.7.2, 05/2003:
+Bug in ASM include generation fixed, which caused equates in modules to appear twice.
+</LI>
+
+<LI>
+Version 1.8.0, 05/2003:
+New menu items <i>Explore</i> and <i>Properties</i>.
+New context menu for variables in typeinfo dialog.
+Values of bindable properties will be updated automatically in <i>properties</i> dialog if a connection to IPropertyNotifySink has been established.
+</LI>
+
+<LI>
+Version 1.8.1, 06/2003:
+New menu items <i>Register Server</i> and <i>Unregister Server</i>.
+If AppId value exists in CLSID entry corresponding Appid key is added to registry editor dialog.
+File links check improved.
+Bug in drop source handler fixed.
+</LI>
+
+<LI>
+Version 1.9.0, 06/2003:
+New tab <i>ROT</i> in main window shows Running Object Table of local system.
+Menu item <i>view vtable</i> added to context menu of <i>object</i> dialog.
+New option <i>Use IClassFactory2 if available</i> in CLSID options.
+Ctrl+F3 accelerator added to quickly find next entry with broken link.
+Help converted to HTML help format.
+Entry DefaultIcon from registry used to set window icon in <i>object</i>, <i>view control</i> and <i>properties</i> dialogs.
+</LI>
+
+<LI>
+Version 1.9.1, 06/2003:
+Full HTML help now. Options dialog rearranged.
+</LI>
+
+<LI>
+Version 2.0.0, 06/2003:
+Fast selection of userdefined column by right-clicking header.
+Command <i>Edit</i> now available in TypeLib dialogs.
+Detailed Help in dialogs available with F1.
+Shortcut Ctrl+A implemented.
+Command <i>Remove From View</i> implemented.
+File Link and ProgID checks added for HKCR view.
+File menu command <i>Edit OLE Settings</i> implemented.
+</LI>
+
+<LI>
+Version 2.0.1, 06/2003:
+Registry editor improved, items of type REG_MULTI_SZ supported.
+For static functions dll name and entry name/ordinal are displayed in typeinfo dialog.
+BugFix: Displaying description of functions in status line of typeinfo dialog now works again.
+</LI>
+
+<LI>
+Version 2.1.0, 07/2003:
+New file menu command <i>OleGetClipboard</i>.
+Support for composite menus and border space in OLE container.
+Check if IMultiQI works correctly.
+Variables of type VAR_DISPATCH added to dispatch helper includes.
+Userdefined column for interface view.
+[Interfaces] section in COMView.ini to define IIDs not listed in HKCR\Interface.
+</LI>
+
+<LI>
+Version 2.2.0, 07/2003:
+New file menu commands <i>Load Object from Storage</i> and <i>Bind to File</i>.
+New edit menu command <i>Get Class Factory</i>.
+Internal interface viewer for IClassFactory2, IPersistFile and IStorage implemented.
+Properties implemented as variables of type VAR_DISPATCH now fully supported.
+Context menu shown if files have been dropped with right mouse button.
+Context menu in collection dialog to select property to display in <i>Value</i> column.
+New Commandline option /s.
+New general option <i>Default action is Bind to File</i>.
+New <i>Storage</i> command in object dialog.
+DDE support implemented.
+Optional container support for IOleDocumentSite and IOleCommandTarget implemented.
+KetilO's hex edit control added, so registry editor can now handle 
+REG_BINARY items of any size.
+</LI>
+
+<LI>
+Version 2.3.0, 08/2003:
+New file menu commands <i>Open Storage</i>, <i>View temporary Storage</i>
+and <i>Open Stream</i>.
+Some new commands in <i>View storage dialog</i>.
+Bug in storage viewer fixed.
+Some improvements in hex editor and a bug fixed concerning objects with size larger than 128 kB.
+BugFix: all events now displayed in Log window again.
+<i>Object dialog</i> can handle multiple connections.
+Save to property bag implemented in OLE container.
+Interface viewers for IPropertySetStorage and IPropertyStorage implemented.
+</LI>
+<LI>
+Version 2.3.1, 08/2003:
+Bug fixed which prevented COMView from starting in Win9x systems due to missing export <i>PropStgNameToFmtId</i>.
+</LI>
+<LI>
+Version 2.4.0, 08/2003:
+Bug fix: command <i>Save in a Storage</i> didn't work in all cases for temporary storage.
+Hex editor's clipboard format changed to CF_TEXT.
+Bug fix: linked objects are now rendered correctly.
+Interface viewer for IOleLink implemented.
+New columns <i>IMoniker Display Name</i> and <i>Connections</i> in <i>created objects</i> view.
+Container supports IDataObject and IViewObject advisory connections. 
+COMView update check implemented.
+<i>View</i> and <i>Play</i> commands in IDataObject interface viewer.
+</LI>
+
+<LI>
+Version 2.5.0, 08/2003:
+Bug fix in <i>properties</i> dialog for non-dispatchable types.
+Bug fix in <i>collection</i> dialog which now shows correct item after sort.
+Bug fix: <i>view object</i> dialog disappeared under some circumstances if option <i>show as top level window</i> wasn't set.
+New option <i>No automatic refresh on view change</i>.
+New menu item <i>Copy object to clipboard</i> in <i>object</i> dialog.
+Container support for IDispatch now optional.
+Dialog to enter parameters in <i>properties</i> dialog improved.
+Support for IPersistPropertyBag::Load and optionally IPersistFile::Load. 
+IPropertyBag interface implemented.
+Commands <i>Rewrite</i> and <i>Rename</i> implemented in <i>view storage</i> dialog.
+</LI>
+
+<LI>
+Version 2.5.1, 09/2003:
+Bug fix: <i>Rename</i> function now works correct in registry editor.
+New menu item <i>Security Settings</i> in <i>object</i> dialog.
+Macros FIREEVENT and DEFINE_FIREEVENTHELPER added to include file DISPHLP.INC.
+<i>Register</i> and <i>Unregister</i> commands now may work for EXE-servers as well.
+If an object is created in typelib dialog, default interface of coclass is known in object dialog even if it isn't registered in HKCR\Interface.
+</LI>
+
+<LI>
+Version 2.6.0, 09/2003:
+New columns <i>[AuthLvl]</i> and <i>[RunAs]</i> for AppId view.
+New menu command <i>Find All</i>.
+TypeLib dialog now resizeable and some new optional columns included.
+New menu item <i>Help</i>  to display context help in typelib, typeinfo and properties dialogs.
+<i>Parameter dialog</i> improved, objects returned in [out] parameters will be displayed.
+</LI>
+
+<LI>
+Version 2.7.0, 10/2003:
+Order of columns maintained for main window views.
+BSTRs returned in [out] parameters displayed in Log window.
+Commandline option /OUT: added.
+New menu items <i>IClassFactory::CreateInstance</i> and <i>Copy</i> in typelib dialog.
+TypeInfo dialog made resizeable and new menu item <i>Copy</i> added.
+New menu item <i>Unregister</i> in COMView's drop target menu.
+Column headers added in save/copy commands.
+Bitmap added to show sort column and sort order in main view.
+</LI>
+
+<LI>
+Version 2.7.1, 10/2003:
+BugFix: inserting a user defined column after deleting one may have caused GPFs.
+Bitmap in listview header showing sort column and sort order now for all dialogs.
+</LI>
+
+<LI>
+Version 2.8.0, 11/2003:
+Properties of enumeration type now presented for editing in a combobox.
+BugFix: Bitmaps in listview header changed to crosses after a check function has been executed.
+<i>Object</i> options splitted in <i>object</i> and <i>view control</i> options.
+New options <i>Log to debugger window</i>, <i>Support IServiceProvider</i>, <i>Use IQuickActivate if available</i>, <i>Initialize with IPersistPropertyBag::Load/InitNew if available</i> and <i>Initialize with IPersistStreamInit::Load/InitNew if available</i>.
+New dialog to edit ambient properties of control container and some new ambient properties added.
+Exception handling of control container improved.
+</LI>
+
+<LI>
+Version 2.8.1, 11/2003:
+BugFix: <i>Properties</i> button in object dialog was enabled although no typeinfo was available.
+New option <i>Use IEnumConnectionPoints to list source interfaces</i>.
+</LI>
+
+<LI>
+Version 2.8.2, 11/2003:
+BugFix: In properties dialog, variables (VARDESC) of type VT_PTR caused exceptions
+and variables of type VT_USERDEFINED weren't translated/presented in a combobox.
+BugFix: Displaying description of variables in status line of typeinfo dialog now works again.
+BugFix: Font ambient property (dispid -703) now created with correct parameters (and is now active by default).
+BugFix: reading [Interfaces] section from COMView.ini now works for Win9x as well.
+New option <i>Display interfaces with no associated typeinfo in gray text</i>.
+</LI>
+
+<LI>
+Version 2.8.3, 01/2004:
+BugFix: Translation of userdefined types in properties dialog disappeared if item
+was edited but value wasn't changed.
+</LI>
+
+<LI>
+Version 2.8.4, 03/2004:
+BugFix: Resetting option <i>Display Value in decimal</i> caused COMView to create
+invalid ASM include files (with C-style prefix "0x" for numbers in equates).
+BugFix: Macro DEFINE_EVENTHELPER in include file DISPHLP.INC had a bug causing
+some types of event procs not to be called at all.
+Event proc <i>BeforeNavigate2</i> added to source code sample <i>WebBrowserApp</i>.
+</LI>
+
+<LI>
+Version 2.9.0, 05/2004:
+BugFix: leaving registry editor caused COMView to crash on win2k systems.
+COMView's implementation of IPropertyBag will save properties of types VT_DISPATCH and VT_UNKNOWN
+as VT_STREAMED_OBJECTS, so IPersistPropertyBag::Save will work in more cases now.
+New menu item <i>Load from a File</i> in <i>View Control Dialog</i>.
+</LI>
+
+<LI>
+Version 2.9.1, 07/2004:
+BugFix: Logged Invoke calls displayed <i>VT_?</i> if flag VT_BYREF was set.
+BugFix: Logged Invoke calls now correct if called with an ITypeInfo pointer.
+New menu item <i>Invert Selection</i>.
+Collection dialog resizeable.
+New menu option to display/edit values in hexadecimal in <i>Properties Dialog</i>.
+Option <i>Use IPointerInactive if available</i> now implemented.
+</LI>
+
+<LI>
+Version 2.9.2, 02/2005:
+BugFix: failure to read a property with parameters wasn't indicated.
+BugFix: dragging an item out of ComView didn't work.
+</LI>
+<LI>
+Version 2.9.3, 02/2005:
+BugFix: some wide strings defined without terminating 0 in version 2.9.2.
+BugFix: check for update function didn't work in version 2.9.2.
+</LI>
+<LI>
+Version 2.9.4, 06/2006:
+BugFix: check for AppID didn't select the broken links. Ensured that function
+DispatchEvent (used by macro FIREEVENT()) returns a defined value in EAX.
+</LI>
+<LI>
+Version 2.9.5, 07/2006:
+In batch mode COMView writes to the console if started by a console application
+under WinXP. Exceptions occuring inside LoadTypeLibEx() are caught and displayed.
+Some more messages about object creation/deletion displayed in Log window.
+</LI>
+<LI>
+Version 2.9.6, 01/2007:
+BugFix: batch mode didn't work in v2.9.5.
+</LI>
+<LI>
+Version 2.9.7, 01/2007:
+WebBrowserSample can now be created with both WinInc and Masm32 include files.
+INCLCOM.ZIP deleted.
+</LI>
+<LI>
+Version 2.9.8, 07/2007:
+In the type library dialog, all COCLASS items which have flag CanCreate set but for
+which no CLSID entry can be found are grayed.
+</LI>
+<LI>
+Version 2.9.9, 09/2008:
+DB, DW, DD, DQ added to the list of reserved words.
+</LI>
+<LI>
+Version 2.9.10, 02/2010:
+Registry editor: deletion of an item will trigger selection of the next - or previous - sibling.
+</LI>
+<LI>
+Version 2.9.11, 02/2011:
+Registry editor: error code is displayed on failures.
+</LI>
+<LI>
+Version 2.9.12, 02/2011:
+Bugfix: in v2.9.11, the change implemented in v2.9.10 didn't work anymore.
+</LI>
+
+</font>
+</UL>
+</body>
+
+</html>

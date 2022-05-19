@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="HTML Help 4.00">
+<!-- Sitemap 1.0 -->
+</HEAD><BODY>
+<UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="File Menu">
+		<param name="Local" value="mainwindowmenu.htm#FileSubMenu">
+		</OBJECT>
+	</LI>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Edit Menu">
+		<param name="Local" value="mainwindowmenu.htm#EditSubMenu">
+		</OBJECT>
+	</LI>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="View Menu">
+		<param name="Local" value="mainwindowmenu.htm#ViewSubMenu">
+		</OBJECT>
+	</LI>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Special Menu">
+		<param name="Local" value="mainwindowmenu.htm#SpecialSubMenu">
+		</OBJECT>
+	</LI>
+
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Options, general">
+		<param name="Local" value="optionsdialog.htm#OptionsGeneral">
+		</OBJECT>
+	</LI>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Options, CLSID">
+		<param name="Local" value="optionsdialog.htm#OptionsCLSID">
+		</OBJECT>
+	</LI>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Options, Type Library">
+		<param name="Local" value="optionsdialog.htm#OptionsTypeLib">
+		</OBJECT>
+	</LI>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Options, Interface">
+		<param name="Local" value="optionsdialog.htm#OptionsInterface">
+		</OBJECT>
+	</LI>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Options, HKCR">
+		<param name="Local" value="optionsdialog.htm#OptionsHKCR">
+		</OBJECT>
+	</LI>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Options, Object">
+		<param name="Local" value="optionsdialog.htm#OptionsObject">
+		</OBJECT>
+	</LI>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Options, Properties">
+		<param name="Local" value="optionsdialog.htm#OptionsProperties">
+		</OBJECT>
+	</LI>
+
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Edit Registry dialog">
+		<param name="Local" value="editdialog.htm">
+		</OBJECT>
+	</LI>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Type Library dialog">
+		<param name="Local" value="typelibdialog.htm">
+		</OBJECT>
+	</LI>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Type Information dialog">
+		<param name="Local" value="typeinfodialog.htm">
+		</OBJECT>
+	</LI>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Object dialog">
+		<param name="Local" value="objectdialog.htm">
+		</OBJECT>
+	</LI>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="View Control dialog">
+		<param name="Local" value="viewdialog.htm">
+		</OBJECT>
+	</LI>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="View Storage dialog">
+		<param name="Local" value="viewstoragedialog.htm">
+		</OBJECT>
+	</LI>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Properties dialog">
+		<param name="Local" value="propertiesdialog.htm">
+		</OBJECT>
+	</LI>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Parameter dialog">
+		<param name="Local" value="paramdialog.htm">
+		</OBJECT>
+	</LI>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Collection dialog">
+		<param name="Local" value="collectiondialog.htm">
+		</OBJECT>
+	</LI>
+
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="History">
+		<param name="Local" value="history.htm">
+		</OBJECT>
+	</LI>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="License">
+		<param name="Local" value="licence.htm">
+		</OBJECT>
+	</LI>
+
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Generating ASM Includes">
+		<param name="Local" value="asmincludes.htm">
+		</OBJECT>
+	</LI>
+
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Generating ASM Dispatch Helper Includes">
+		<param name="Local" value="dispatchhelper.htm">
+		</OBJECT>
+	</LI>
+
+</UL>
+</BODY></HTML>

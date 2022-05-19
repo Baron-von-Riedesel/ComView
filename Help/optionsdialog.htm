@@ -1,0 +1,427 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html">
+</head>
+
+<body>
+
+
+<H3>Options Dialog</H3>
+
+
+Options dialog is a tabbed dialog to set some parameters changing COMView's behaviour.
+Most of these parameters are saved to private profile file COMView.INI on program 
+termination.
+
+<a name="OptionsGeneral"><H4>General Options</H4></a>
+
+<IMG SRC="optiongeneral.gif" Border=2><BR>&nbsp;<BR>
+
+<UL>
+
+<LI>
+<b>Confirm delete requests</b>: Deleting a registry key or value in registry editor
+will require user confirmation. This option is always on on startup (it is NOT saved
+to profile file). 
+</LI>
+<LI>
+<b>Default action is <i>Bind to File</i></b>: This option will change COMView's
+behaviour concerning files in commandline or being dropped. If off, COMView will try
+to open file as a type library and display an error if it cannot succeed.
+If on, COMView will do the following:<BR>&nbsp;<BR>
+<UL>
+<LI>
+Create a file moniker and bind to the file. If this is successful,
+a <a href="viewdialog.htm">view control dialog</a> or an <a href="objectdialog.htm">object dialog</a> will be opened.
+This is similiar to command <a href="mainwindowmenu.htm#FileSubMenu">Bind To File</a>.
+</LI>
+<LI>
+Check if file is a storage file. If so, open a <a href="viewstoragedialog.htm">view storage dialog</a>.
+This is similiar to command <a href="mainwindowmenu.htm#FileSubMenu">Open Storage</a>.
+</LI>
+<LI>
+Check if file is a type library. If so, open a <a href="typelibdialog.htm">type library dialog</a>.
+This is similiar to command <a href="mainwindowmenu.htm#FileSubMenu">Load Type Library</a>.
+</LI>
+<LI>
+Create a stream object from file and open a <a href="viewstoragedialog.htm">view storage dialog</a>.
+This is similiar to command <a href="mainwindowmenu.htm#FileSubMenu">Open Stream</a>.
+</LI>
+</UL>
+<BR>
+So if this option is on COMView will act more or less as a file viewer.
+</LI>
+
+<LI>
+<b>Restrict COMView to one instance</b>: Check this option if you don't want to run
+multiple instances of COMView. To get the new setting to work you must close COMView.
+</LI>
+
+<LI>
+<b>No automatic refresh after view change</b>: If off, COMView will 
+refresh content after user has selected another view in main window.
+If on, no refresh is done until user deliberately selects command <i>Refresh</i>
+in <a href="mainwindowmenu.htm#ViewSubMenu">view menu</a>. Views <i>Created Objects</i>
+and <i>ROT</i> are NOT affected by this option, they will be refreshed in any case.
+</LI>
+
+<LI>
+<b>Log to debugger window</b>: If on, all messages for <a href="logwindow.htm">Log window</a> will be displayed in debugger window instead.
+</LI>
+
+<LI>
+<b>LCID used for TypeInfo calls</b>: On all occasions where type information is read 
+within COMView a LCID is required as parameter, which will be this variable.
+Number 0x800 is value LOCALE_SYSTEM_DEFAULT, which should be fine in most cases, but not always.
+This option is not saved.
+</LI>
+
+<LI>
+<b>Font Height for Hex Editor</b>: The default height of 8 for the fixed font created
+by the hex editor sometimes may not look very well. So here is a simple adjustment
+possibility for this case.
+</LI>
+
+</UL>
+
+<a name="OptionsCLSID"><H4>CLSID Options</H4></a>
+
+<IMG SRC="optionclsid.gif" Border=2><BR>&nbsp;<BR>
+
+<UL>
+
+<LI>
+<b>CLSID Type Search Order</b>: With this option one may influence content of
+Type and Type Value columns. COMView will try to find each of subkeys defined in this list
+until it finds one (if any). If one is found, this subkey is copied to Type column and the default value 
+is copied to Type Value column. Since a CLSID may define more than one of the subkeys listed the order
+does matter and can be changed here.
+</LI>
+<LI>
+<b>Class Context Flags</b>: These flags are used as parameter in CoCreateInstance,  CoCreateInstanceEx 
+and CoGetClassObject API, which are called when selecting commands <i>Create Instance</i> or
+<i>Create Instance On</i> in edit menu.
+</LI>
+<LI>
+<b>Userdefined Column</b>: Some common CLSID subkeys are predefined there, but you can define your own one
+by simple typing it in. To show a value instead of a key the value has to be
+enclosed in square brackets (i.e. <i>[AppId]</i>). 
+</LI>
+<LI>
+<b>Use IClassFactory2 if available</b>: If this option is set, COMView will call
+CoGetClassObject with IClassFactory2 as interface parameter and then call
+IClassFactory2::CreateInstanceLic. Otherwise COMView uses CoCreateInstance. 
+<font color="red">Don't set this option unless there are strong reasons to do so. 
+There exist some problems with out-of-process servers remaining alive in memory even
+if CoGetClassObject has failed</font>.
+</LI>
+<LI>
+<b>Include <i>AutoConvertTo</i> and <i>TreatAs</i> entries for editor</b>:
+If any of such subkeys exist, their values should be other CLSIDs, which will then be added
+if an <a href="editdialog.htm">edit registry dialog</a> is opened.
+</LI>
+
+</UL>
+
+
+<a name="OptionsTypeLib"><H4>Type Library Options</H4></a>
+
+<IMG SRC="optiontypelib.gif" Border=2><BR>&nbsp;<BR>
+
+<UL>
+<LI>
+<B>Use QueryPathOfRegTypeLib</B>: If on, COMView uses QueryPathOfRegTypeLib to get
+the path of a type library instead of reading registry itself. 
+</LI>
+<LI>
+<B>Open dialog as top level window</B>: If this switch is on, typelib dialogs
+will appear as icon in taskbar and one may switch to main window without having to minimize dialog.
+</LI>
+<LI>
+<B>Display type flags as number</B>: If off, type flags are translated into text.
+Type flags are displayed in <a href="typelibdialog.htm">type library dialogs</a>. 
+</LI>
+<LI>
+<B>Generate dispatch helper includes for dual interfaces</B>: With that option on 
+COMView will include all dispatch interfaces when creating 
+<a href="dispatchhelper.htm">ASM dispatch helper includes</a>.
+This option is off by default, because methods of
+dual interfaces should preferably be called thru its vtable and because each
+<i>dispatch helper</i> line defines a function prototype, which may
+increase compile time. But sometimes type information may be inaccurate,
+declaring an interface as dual which in
+fact is not. Other reasons may exist making calls thru IDispatch::Invoke
+inevitable.
+</LI>
+<LI>
+<B>Use clipboard for ASM includes</B>: If on, COMView will write created includes
+not to files, but to the clipboard in CF_TEXT format.
+</LI>
+<BR>&nbsp;<BR>
+<LI>
+<B>Display MEMBERID in decimal</B>: If off, MEMBERIDs are displayed in hexadecimal.
+Default if off.
+</LI>
+<LI>
+<B>Display Value in decimal</B>: If off, values of variables (column <i>Value/Offset</i>) are displayed in hexadecimal.
+Default is on.
+</LI>
+</UL>
+
+<a name="OptionsInterface"><H4>Interface Options</H4></a>
+
+<IMG SRC="optioninterface.gif" Border=2><BR>&nbsp;<BR>
+
+<UL>
+<LI>
+<b>Exlude ProxyStubClsid32 CLSID from edit</b>
+Setting this option on reduces the amount of lines  in registry editor
+which is especially useful when editing several interfaces.
+</LI>
+<LI>
+<b>Exclude Typelib GUID from edit</b>
+Setting this option on reduces the amount of lines  in registry editor
+which is especially useful when editing several interfaces.
+</LI>
+<LI>
+<b>Userdefined Column</b>: Some common subkeys are predefined there, but you can define your own one
+by simple typing it in. To show a value instead of a key the value has to be
+enclosed in square brackets.
+</LI>
+</UL>
+
+<a name="OptionsHKCR"><H4>HKCR Options</H4></a>
+
+<IMG SRC="optionHKCR.gif" Border=2><BR>&nbsp;<BR>
+
+<UL>
+<LI>
+<b>Userdefined Column</b>: Some common subkeys are predefined there, but you can define your own one
+by simple typing it in. To show a value instead of a key the value has to be
+enclosed in square brackets.
+</LI>
+</UL>
+
+<a name="OptionsObject"><H4>Object Options</H4></a>
+
+Options on this page may affect <a href="objectdialog.htm">object dialog</a>.
+
+<BR>&nbsp;<BR>
+
+<IMG SRC="optionobject.gif" Border=2><BR>&nbsp;<BR>
+
+<UL>
+<LI>
+<B>Open dialog as top level window</B>: If this switch is on, dialog
+will appear as icon in taskbar and one may switch to main window without having to minimize dialog.
+</LI>
+<LI>
+<b>Call CoFreeUnusedLibraries after Release</b>: object dialog releases object when closing. Calling
+CoFreeUnusedLibraries on this occasion may speed up releasing of in-process server dlls. 
+Will only work for server dlls exporting DllCanUnloadNow function.
+</LI>
+<LI>
+<b>Use IMultiQI if available</b>: COMView will query for interface IMultiQI and use it
+for its interface scan, which may speed up this process, especially for out-of-process 
+servers.
+</LI>
+<LI>
+<b>Use IEnumConnectionPoints to list source interfaces</b>: Some controls haven't correctly implemented
+this interface which may cause COMView to act strange or to terminate. In such cases set this option off.
+</LI>
+<LI>
+<b>Display interfaces with no associated typeinfo in gray text</b>:
+With this option on it should be easier to identify all interfaces for which a <a href="propertiesdialog.htm">properties dialog</a> may be opened.
+</LI>
+</UL>
+
+<a name="OptionsViewControl"><H4>View Control Options</H4></a>
+
+Options on this page may affect <a href="viewdialog.htm">view control dialog</a>.
+
+<BR>&nbsp;<BR>
+
+<IMG SRC="optionviewcontrol.gif" Border=2><BR>&nbsp;<BR>
+
+<UL>
+<LI>
+<B>Open dialog as top level windows</B>: If this switch is on, dialog
+will appear as icon in taskbar and one may switch to main window without having to minimize dialog.
+</LI>
+<LI>
+<B>Show inactive objects with IViewObject::Draw</B>: If object is inactive 
+OLE container will call IViewObject::Draw if available.
+</LI>
+<LI>
+<B>Confirm save requests in IOleClientSite::SaveObject</B>: If activated,
+a message box will popup requiring user confirmation that object can be saved.
+<u>Please note that because COMView opens storage objects in transacted mode this doesn't
+mean your changes are made permanent. For this to happen command <i>commit</i> has to be executed in
+<a href="viewstoragedialog.htm">view storage dialog</a></u>.
+</LI>
+
+<LI>
+<B>Use IQuickActivate if available</B>: If on, COMView
+will query the object for IQuickActivate interface and, if successful, call method QuickActivate.
+If option is off or interface isn't exposed, COMView will do standard activation. 
+</LI>
+
+<LI>
+<B>Use IPointerInactive if available</B>: Will use IPointerInactive interface if object exposes this interface.
+Please note that in this case ComView will always ignore status flag OLEMISC_ACTIVATEWHENVISIBLE,
+regardless if flag OLEMISC_IGNOREACTIVATEWHENVISIBLE is set or not.
+</LI>
+
+<LI>
+<B>Initialize with IPersistPropertyBag::Load/InitNew if available</B>: If on, COMView
+will query the object for IPersistPropertyBag and, if successful, call initialization method
+Load/InitNew. If option is off or interface isn't exposed, COMView will query for IPersistStreamInit (optionally) and/or IPersistStorage instead.
+</LI>
+
+<LI>
+<B>Initialize with IPersistStreamInit::Load/InitNew if available</B>: If on, COMView
+will query the object for IPersistStreamInit and, if successful, call initialization method
+Load/InitNew. If option is off or interface isn't exposed, COMView will query for IPersistStorage instead.
+</LI>
+
+<LI>
+<B>Initialize with IPersistFile::Load if available</B>: If this option is on,
+COMView will query the object for IPersistFile interface if no storage object
+is assigned to the object.
+If query for IPersistFile is successful, a standard open file dialog will be opened
+allowing the user to select a file for initialization method IPersistFile::Load.
+</LI>
+
+<LI>
+<B>Log calls of container's QueryInterface method</B>: OLE container will log 
+QueryInterface calls by the hosted control in view control dialog.
+Logs will appear in <a href="logwindow.htm">Log window</a>.
+</LI>
+<LI>
+<B>Log calls of container's other methods</B>: OLE container will log 
+methods being called by hosted control in view control dialog (not including IUnknown methods).
+Logs will appear in <a href="logwindow.htm">Log window</a>.
+</LI>
+
+<BR>&nbsp;<BR>
+
+<LI>
+<B>Support IOleInPlaceSiteEx</B>: OLE container will expose interface IOleInPlaceSiteEx.
+</LI>
+<LI>
+<B>Support IOleInPlaceSiteWindowless (allows windowless activation)</B>: OLE container will expose interface IOleInPlaceSiteWindowless
+and return S_OK in method IOleInPlaceSiteWindowless::CanWindowlessActivate.
+</LI>
+<LI>
+<B>Support IDispatch</B>: OLE container will expose interface IDispatch
+(required if object wants to get ambient properties for example).
+</LI>
+<LI>
+<B>Support IOleDocumentSite</B>: OLE container will expose interface IOleDocumentSite.
+If server object exposes IOleDocument, activation verb will be OLEIVERB_SHOW instead of OLEIVERB_INPLACEACTIVATE.
+</LI>
+<LI>
+<B>Support IOleCommandTarget</B>: OLE container will expose interface IOleCommandTarget.
+If option <i>Log container's methods being called</i> is set, commands being queried or 
+to be executed are logged.
+</LI>
+<LI>
+<B>Support IServiceProvider</B>: OLE container will expose interface IServiceProvider.
+Calls to method IServiceProvider::QueryService are logged if option <i>Log container's methods being called</i>
+is set.
+</LI>
+
+</UL>
+
+Please note: options which will affect interfaces exposed by the container should not be changed
+while a container is running. This would violate COM rules.
+
+
+
+<a name="OptionsProperties"><H4>Properties Options</H4></a>
+
+Options on this page may affect <a href="propertiesdialog.htm">properties dialog</a>
+or <a href="collectiondialog.htm">collection dialog</a>.
+
+<BR>&nbsp;<BR>
+
+<IMG SRC="optionproperties.gif" Border=2><BR>&nbsp;<BR>
+
+Options properties dialog 
+<UL>
+<LI>
+<B>Open dialog as top level window</B>: If this switch is on, <i>properties</i> dialogs
+will appear as icon in taskbar and one may switch to main window without having to minimize dialog.
+</LI>
+<LI>
+<b>Open each properties dialog in its own window</b>: switching this option off
+will instruct COMView not to open new <i>properties</i> windows when
+walking thru the object model. This will reduce the amount of concurrently open windows, but
+on the other hand it may be difficult to &quot;walk back&quot;.</LI>
+
+<LI>
+<b>Show results of methods returning IDispatch in a <i>properties</i> dialog</b>:
+if this option is on and the method being executed returns an IDispatch pointer,
+COMView will open a (new) <i>properties</i> dialog for the returned object
+in the same manner as with properties.
+</LI>
+
+<LI>
+<b>Close typelib dialog with properties dialog</b>:
+If a typelib dialog has been opened within <i>properties</i> dialog, it will be closed
+automatically when <i>properties</i> dialog has been closed.
+</LI>
+
+<LI>
+<b>Display translation of userdefined type</b>:
+if this option is on COMView will try to translate values of properties
+into correspondent text of an enumeration type. Pressing Ctrl+U in <i>properties</i>
+dialog will switch this option on and off as well.
+</LI>
+
+<LI>
+<b>Don't get properties of type IDispatch during property scan</b>:
+When first showing properties dialog COMView reads all properties 
+showing the results. If this option is on, COMView will not read properties 
+of type IDispatch. This may speed-up the scan process and avoid problems 
+with some applications. On the other hand you won't be able to see 
+default values of such properties or error codes 
+(in case of unsuccessful read).
+</LI>
+
+<LI>
+<b>Log IDispatch::Invoke calls</b>:
+User actions in dialog like executing methods or getting/setting properties will be displayed in 
+<a href="logwindow.htm">Log window</a>.
+</LI>
+
+<LI>
+<b>Show <i>Set TypeInfo</i> Menu Item</b>: If on, context menu will show this command,
+which is for experienced users only.
+<BR>
+</LI>
+</UL>
+
+Options collection dialog
+<UL>
+
+<LI>
+<B>Open dialog as top level window</B>: If this switch is on, collection dialogs
+will appear as icon in taskbar and one may switch to main window without having to minimize dialog.
+</LI>
+<LI>
+<B>Close dialog if <i>View</i> command is executed</B>: That is to reduce amount of concurrently open dialogs.
+</LI>
+<LI>
+<B>max. number of items</B>: Showing all items of a large collection may take a while.
+So this option limits the number of items shown to speed up things.
+</LI>
+
+
+</UL>
+
+
+</body>
+
+</html>

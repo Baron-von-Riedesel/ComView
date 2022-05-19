@@ -1,0 +1,47 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html">
+</head>
+
+<body>
+
+<H3>Generating ASM Include Files</H3>
+
+
+In <a href="typelibdialog.htm">type library dialog</a> 
+button <i>Create ASM Include</i> will create, after asking for a file
+name, an ASM include file from the infos found in the type library. Mostly this
+generated file can be used without modification in your source.
+( if you are using MASM32, you might need 3 additional include files
+which are contained in the WebBrowserSample: OBJBASE.INC, UNKNWN.INC and OAIDL.INC).
+
+<BR>&nbsp;<BR>
+
+
+To call a method through a vtable
+use macro vf(), which is defined in OBJBASE.INC. To call methods of
+dispatchonly interfaces, see <a href="dispatchhelper.htm">dispatch helper includes</a>.
+<BR>&nbsp;<BR>
+
+COMView does source generation in 2
+passes, trying to rearrange types so dependant types will come last.<BR>
+
+Include file generation may be done
+quietly in &quot;batch&quot; mode with command line option &quot;/B&quot;
+(example: &quot;COMView /B AsmCtrl.tlb&quot;). WARNING: in &quot;batch&quot;
+mode COMView may overwrite existing files without user confirmation!<BR>
+
+With option <B>Use Clipboard for
+ASM includes</B> in <a href="optionsdialog.htm#OptionsTypeLib">type library options</a>
+you may cause COMView to write its include files to the clipboard.
+
+<BR>&nbsp;<BR>
+
+A sample application
+&quot;WebbrowserApp&quot; has been included to show how to use COMView
+generated includes. This sample hosts Internet Explorer.<BR>
+
+</body>
+
+</html>

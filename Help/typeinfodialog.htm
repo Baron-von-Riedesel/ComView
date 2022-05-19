@@ -1,0 +1,99 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html">
+</head>
+
+<body>
+
+
+<H3>Type Information Dialog</H3>
+
+
+This tabbed dialog shows a type information entry of a type library.<BR>&nbsp;<BR>
+
+<IMG SRC="typeinfodialog.gif" Border=2><BR>&nbsp;<BR>
+
+A type information may include up to 3 tables, which are displayed by this dialog:
+<UL>
+<LI><B>Functions</B>: Normally type informations of kind TKIND_DISPATCH, TKIND_INTERFACE
+and TKIND_MODULE will include a table of functions. Columns are:
+<UL>
+<LI><B>Name</B>: Name of function returned by ITypeInfo::GetNames.
+</LI>
+<LI><B>memid</B>: Function's member ID.
+</LI>
+<LI><B>FuncKind, InvKind, CallConv</B>: 
+FuncKind specifies if function is virtual, static or dispatch-only.
+InvKind (Invocation kind) indicates if this is a property function and if so, what kind.
+CallConv is function's calling convention.
+</LI>
+<LI><B>rcType</B>: Type of return value.
+</LI>
+<LI><B>Params</B>: Names and types of parameters. Double-clicking an item will show
+parameters in more detail (in, out, optional). 
+</LI>
+<LI><B>Flags</B>: Function's flags. A translatíon should appear in right pane
+of status line for current item. Values are <i>restricted, source, bindable,
+requestedit, displaybind, defaultbind, hidden, usesgetlasterror,
+defaultcollelem, uidefault, nonbrowsable, replaceable, immediatebind</i>.
+</LI>
+<LI><B>ofsVft/Entry</B>: For virtual functions specifies offset in vtable.
+For static functions displays dll name and entry name/ordinal.
+</LI>
+</UL>
+
+</LI>
+<LI><B>Variables</B>: Type informations of kind TKIND_ENUM, TKIND_RECORD, 
+TKIND_UNION and sometimes TKIND_MODULE will most likely include a table of constants/variables.
+Columns are:
+<UL>
+<LI><B>Name</B>: Name of constant/variable returned by ITypeInfo::GetNames.
+</LI>
+<LI><B>memid</B>: member ID.
+</LI>
+<LI><B>varkind</B>: 
+Specifies if item is a constant, static variable, member of a type or to access via IDispatch::Invoke only.
+</LI>
+<LI><B>Type</B>: Type of constant/variable.
+</LI>
+<LI><B>Value/Offset</B>: Shows value (for constants) or offset within instance (for member variables).
+</LI>
+<LI><B>Flags</B>: Variable's flags. Values are <i>readonly(1), source(2), bindable(4),
+requestedit(8), displaybind(0x10), defaultbind(0x20), hidden(0x40), restricted(0x80),
+defaultcollelem(0x100), uidefault(0x200), nonbrowsable(0x400), replaceable(0x800), immediatebind(0x1000)</i>.
+</LI>
+</UL>
+
+</LI>
+
+<LI><B>Interfaces</B>: TKIND_COCLASS type informations will include interfaces. 
+Type informations of kind TKIND_DISPATCH and TKIND_INTERFACE will display here the interface
+they are inherited from. Note that for type informations of kind TKIND_DISPATCH there 
+will exist an entry here pointing to a TKIND_INTERFACE type information with identical IID.
+Only that entry will be used by COMView for ASM include file generation.
+</LI>
+</UL>
+
+Right-clicking an item will open a context menu with commands:<BR>
+<UL>
+<LI>
+<B>View Item</B>: displays a simple dialog which shows current item in more detail.
+</LI>
+<LI>
+<B>View ref. TypeInfo</B>: referenced type information will be shown in another typeinfo dialog.
+</LI>
+<LI>
+<B>Copy</B>: copies selected lines to the clipboard.
+</LI>
+<LI>
+<B>Help</B>: if available displays context sensitive help.
+</LI>
+</UL>
+
+<BR>
+
+
+</body>
+
+</html>

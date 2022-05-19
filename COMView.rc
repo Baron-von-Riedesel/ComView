@@ -1,0 +1,1160 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "rsrc.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include <resource.h>
+#define IDC_STATIC (-1)
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Neutral resources
+
+#define LANG_NEUTRAL 00
+#define SUBLANG_NEUTRAL 00
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
+#ifdef _WIN32
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON1               ICON    DISCARDABLE     "Res\\comview.ico"
+IDI_BINARY              ICON    DISCARDABLE     "Res\\binary.ico"
+IDI_FOLDER              ICON    DISCARDABLE     "Res\\folder.ico"
+IDI_FOLDEROPEN          ICON    DISCARDABLE     "Res\\folderop.ico"
+IDI_STRING              ICON    DISCARDABLE     "Res\\string.ico"
+IDI_PROPERTIES          ICON    DISCARDABLE     "Res\\properties.ico"
+IDI_TYPELIB             ICON    DISCARDABLE     "Res\\typeinfo.ico"
+IDI_OBJECT              ICON    DISCARDABLE     "Res\\object.ico"
+IDI_CONTAINER           ICON    DISCARDABLE     "Res\\container.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+IDC_CURSOR1             CURSOR  DISCARDABLE     "Res\\SplitH.cur"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_BITMAP1             BITMAP  DISCARDABLE     "Res\\arrows.bmp"
+IDB_BITMAP2             BITMAP  DISCARDABLE     "Res\\crosses.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_MAINDLG DIALOGEX 0, 0, 451, 217
+STYLE WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU | 
+    WS_THICKFRAME
+CAPTION "COMView"
+MENU IDR_MENU1
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_LIST1,"SysListView32",LVS_REPORT | 
+                    LVS_SHOWSELALWAYS | LVS_SHAREIMAGELISTS | LVS_OWNERDATA | 
+                    WS_TABSTOP,145,52,104,86,WS_EX_STATICEDGE
+    CONTROL         "",IDC_TAB1,"SysTabControl32",TCS_BOTTOM | WS_TABSTOP,15,
+                    46,90,37
+END
+
+IDD_OBJECTDLG DIALOGEX 0, 0, 326, 229
+STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Object: %s"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_LIST1,"SysListView32",LVS_REPORT | LVS_SINGLESEL | 
+                    LVS_SHOWSELALWAYS | WS_TABSTOP,7,7,312,131,
+                    WS_EX_STATICEDGE
+    LTEXT           "outgoing Interfaces",IDC_STATIC,7,142,64,8
+    CONTROL         "",IDC_LIST2,"SysListView32",LVS_REPORT | LVS_SINGLESEL | 
+                    WS_TABSTOP,7,151,312,45,WS_EX_STATICEDGE
+    PUSHBUTTON      "&View",IDC_VIEW,10,200,39,14,WS_DISABLED
+    PUSHBUTTON      "&Properties",IDM_PROPERTIESDLG,53,200,39,14,WS_DISABLED
+    PUSHBUTTON      "&Storage",IDM_VIEWSTORAGEDLG,96,200,39,14,WS_DISABLED
+    PUSHBUTTON      "&Run",IDC_RUN,139,200,39,14,WS_DISABLED
+    PUSHBUTTON      "Re&fresh",IDM_REFRESH,182,200,39,14
+    PUSHBUTTON      "&Lock Object",IDC_LOCK,225,200,48,14
+    PUSHBUTTON      "&Close",IDCANCEL,277,200,39,14
+    CONTROL         "",IDC_STATUSBAR,"msctls_statusbar32",0x3,0,217,326,12
+END
+
+IDD_EDITREGDLG DIALOGEX 0, 0, 330, 242
+STYLE DS_CENTER | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_CAPTION | WS_SYSMENU | 
+    WS_THICKFRAME
+CAPTION "Edit registry"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_TREE1,"SysTreeView32",TVS_HASBUTTONS | 
+                    TVS_HASLINES | TVS_LINESATROOT | TVS_EDITLABELS | 
+                    TVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,7,316,186,
+                    WS_EX_CLIENTEDGE
+    EDITTEXT        IDC_EDIT1,7,196,316,22,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_AUTOHSCROLL
+    CONTROL         "",IDC_CUSTOM1,"HEXEDIT",NOT WS_VISIBLE | WS_DISABLED | 
+                    WS_TABSTOP | 0x36,94,218,12,14,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Toggle",IDC_EXPAND,7,221,50,14
+    DEFPUSHBUTTON   "Ok",IDOK,206,221,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,273,221,50,14
+    LTEXT           "",IDC_SPLITBTN,114,220,8,8,SS_NOTIFY | NOT WS_GROUP
+END
+
+IDD_TYPELIBDLG DIALOGEX 0, 0, 418, 205
+STYLE DS_CENTER | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_CAPTION | WS_SYSMENU | 
+    WS_THICKFRAME
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_LIST1,"SysListView32",LVS_REPORT | 
+                    LVS_SHOWSELALWAYS | WS_TABSTOP,3,3,412,156,
+                    WS_EX_STATICEDGE
+    PUSHBUTTON      "&Register TypeLib",IDC_REGISTER,17,172,65,14,
+                    WS_DISABLED
+    PUSHBUTTON      "&Unregister TypeLib",IDC_UNREGISTER,94,172,68,14
+    PUSHBUTTON      "Create &ASM Include",IDC_CREATEINC,174,172,70,14
+    PUSHBUTTON      "Create &Dispatch Helper",IDC_CREATESTUB,256,172,80,14
+    PUSHBUTTON      "&Close",IDCANCEL,348,172,52,14
+    CONTROL         "",IDC_STATUSBAR,"msctls_statusbar32",0x803,0,193,418,12
+END
+
+IDD_PROGRESSDLG DIALOG DISCARDABLE  0, 0, 187, 58
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Cancel",IDCANCEL,68,37,50,14
+    CONTROL         "Progress1",IDC_PROGRESS1,"msctls_progress32",WS_BORDER,
+                    15,17,157,14
+END
+
+IDD_OPTIONS DIALOG DISCARDABLE  0, 0, 285, 220
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Options"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "",IDC_TAB1,"SysTabControl32",WS_CLIPSIBLINGS | 
+                    WS_TABSTOP,7,7,271,187
+    PUSHBUTTON      "&Close",IDOK,117,199,50,14
+END
+
+IDD_OPTPAGE_GENERAL DIALOG DISCARDABLE  0, 0, 186, 112
+STYLE DS_CONTROL | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Confirm delete requests",IDC_CHECK1,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,8,9,164,10
+    CONTROL         "Default action is ""Bind to File""",IDC_CHECK2,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,8,20,164,10
+    CONTROL         "Restrict COMView to one instance",IDC_CHECK3,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,8,31,164,10
+    CONTROL         "No automatic refresh on view change",IDC_CHECK4,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,8,42,164,10
+    CONTROL         "Log to debugger window",IDC_CHECK5,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,8,53,164,10
+    EDITTEXT        IDC_EDIT1,8,70,25,12,ES_AUTOHSCROLL
+    LTEXT           "LCID used for TypeInfo calls",IDC_STATIC,41,72,89,8
+    EDITTEXT        IDC_EDIT2,8,85,17,12,ES_AUTOHSCROLL
+    LTEXT           "Font Height for Hex Editor",IDC_STATIC,41,87,89,8
+END
+
+IDD_OPTPAGE_CLSID DIALOGEX 0, 0, 267, 172
+STYLE DS_CONTROL | WS_CHILD
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    GROUPBOX        "CLSID Type Search Order",IDC_STATIC,6,6,118,114
+    CONTROL         "",IDC_LIST1,"SysListView32",LVS_REPORT | LVS_SINGLESEL | 
+                    LVS_SHOWSELALWAYS | LVS_OWNERDATA | LVS_NOSCROLL | 
+                    LVS_NOCOLUMNHEADER | WS_TABSTOP,13,19,104,95,
+                    WS_EX_CLIENTEDGE
+    GROUPBOX        "Class Context Flags",IDC_STATIC,132,6,86,114
+    CONTROL         "Inproc Server",IDC_CHKSERVER,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,138,24,59,10
+    CONTROL         "Inproc Handler",IDC_CHKHANDLER,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,138,41,59,10
+    CONTROL         "Local Server",IDC_CHKLOCAL,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,138,58,59,10
+    CONTROL         "Remote Server",IDC_CHKREMOTE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,138,75,59,10
+    LTEXT           "User defined Column",IDC_STATIC,7,131,73,8
+    COMBOBOX        IDC_COMBO1,86,128,178,74,CBS_DROPDOWN | CBS_AUTOHSCROLL | 
+                    WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Use IClassFactory2 if available",IDC_CHECK3,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,8,146,220,10
+    CONTROL         "Include ""AutoConvertTo"" and ""TreatAs"" entries for editor",
+                    IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,159,
+                    213,10
+END
+
+IDD_OPTPAGE_TYPELIB DIALOG DISCARDABLE  0, 0, 198, 126
+STYLE DS_CONTROL | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Use QueryPathOfRegTypeLib",IDC_CHECK1,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,12,7,178,10
+    GROUPBOX        "TypeLib Dialog",IDC_STATIC,8,21,190,56
+    CONTROL         "Open dialog as top level window",IDC_CHECK6,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,12,31,178,10
+    CONTROL         "Display type flags as number",IDC_CHECK3,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,12,41,178,10
+    CONTROL         "Generate dispatch helper includes for dual interfaces",
+                    IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,51,
+                    178,10
+    CONTROL         "Use clipboard for ASM includes",IDC_CHECK5,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,12,61,178,10
+    GROUPBOX        "TypeInfo Dialog",IDC_STATIC,8,81,190,37
+    CONTROL         "Display MemberID in decimal",IDC_CHECK4,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,12,92,178,10
+    CONTROL         "Display Value in decimal",IDC_CHECK7,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,12,102,182,10
+END
+
+IDD_OPTPAGE_INTERFACE DIALOG DISCARDABLE  0, 0, 232, 128
+STYLE DS_CONTROL | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "exclude ProxyStubClsid32 CLSID from edit",IDC_CHECK1,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,15,178,10
+    CONTROL         "exclude TypeLib GUID from edit",IDC_CHECK2,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,8,31,176,10
+    COMBOBOX        IDC_COMBO1,86,56,146,77,CBS_DROPDOWN | CBS_AUTOHSCROLL | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "User defined Column",IDC_STATIC,10,57,69,8
+END
+
+IDD_OPTPAGE_HKCR DIALOG DISCARDABLE  0, 0, 232, 95
+STYLE DS_CONTROL | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    COMBOBOX        IDC_COMBO1,87,7,138,77,CBS_DROPDOWN | CBS_AUTOHSCROLL | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "User defined Column",IDC_STATIC,8,8,73,8
+END
+
+IDD_OPTPAGE_OBJECT DIALOG DISCARDABLE  0, 0, 227, 170
+STYLE DS_CONTROL | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Open dialog as top level window",IDC_CHECK1,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,9,9,185,10
+    CONTROL         "call CoFreeUnusedLibraries after Release",IDC_CHECK2,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,9,19,185,10
+    CONTROL         "use IMultiQI if available",IDC_CHECK3,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,9,29,185,10
+    CONTROL         "Use IEnumConnectionPoints to list source interfaces",
+                    IDC_CHECK4,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,9,39,
+                    185,10
+    CONTROL         "Display interfaces with no associated typeinfo in gray text",
+                    IDC_CHECK5,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,9,49,
+                    201,10
+END
+
+IDD_TYPEINFODLG DIALOG DISCARDABLE  10, 10, 410, 208
+STYLE WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU | 
+    WS_THICKFRAME
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "&Close",IDCANCEL,180,180,50,14
+    CONTROL         "",IDC_TAB1,"SysTabControl32",TCS_BOTTOM | WS_TABSTOP,3,
+                    3,404,174
+    CONTROL         "",IDC_STATUSBAR,"msctls_statusbar32",0x803,0,196,410,12
+END
+
+IDD_TYPEINFOPAGE DIALOGEX 0, 0, 187, 98
+STYLE DS_CONTROL | WS_CHILD
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_LIST1,"SysListView32",LVS_REPORT | 
+                    LVS_SHOWSELALWAYS | WS_TABSTOP,60,24,60,50,
+                    WS_EX_STATICEDGE
+END
+
+IDD_VIEWOBJECTDLG DIALOG DISCARDABLE  0, 0, 294, 188
+STYLE WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_CAPTION | WS_SYSMENU | 
+    WS_THICKFRAME
+CAPTION "View Control : %s "
+MENU IDR_MENU4
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Static",IDC_STATIC1,4,4,286,162,NOT WS_VISIBLE | 
+                    WS_BORDER
+    CONTROL         "",IDC_STATUSBAR,"msctls_statusbar32",0x803,4,173,286,14
+END
+
+IDD_CREATEREMOTE DIALOG DISCARDABLE  20, 20, 187, 77
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Connect to another machine"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "Enter name of machine on which to create object",
+                    IDC_STATIC,7,7,173,40
+    EDITTEXT        IDC_EDIT1,22,21,142,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,35,56,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,101,56,50,14
+END
+
+IDD_VIEWDETAIL DIALOG DISCARDABLE  0, 0, 224, 165
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Detailed View"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT1,7,7,210,131,ES_MULTILINE | ES_READONLY | 
+                    ES_WANTRETURN | WS_VSCROLL
+    DEFPUSHBUTTON   "Ok",IDOK,54,144,50,14
+    DEFPUSHBUTTON   "Cancel",IDCANCEL,120,144,50,14
+END
+
+IDD_PROPERTIESDLG DIALOG DISCARDABLE  0, 0, 217, 217
+STYLE WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_CAPTION | WS_SYSMENU | 
+    WS_THICKFRAME
+CAPTION "Properties %.32s %.32s"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "",IDC_TAB1,"SysTabControl32",TCS_BOTTOM | WS_TABSTOP,0,
+                    0,217,179
+    CONTROL         "",IDC_LIST1,"SysListView32",LVS_REPORT | 
+                    LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,102,73,77,98
+    PUSHBUTTON      "&Object",IDM_OBJECTDLG,2,184,41,14
+    PUSHBUTTON      "&View",IDM_VIEWOBJECT,45,184,41,14
+    PUSHBUTTON      "&TypeLib",IDC_TYPELIBDLG,88,184,41,14
+    PUSHBUTTON      "&Refresh",IDM_REFRESH,131,184,41,14
+    PUSHBUTTON      "&Close",IDCANCEL,174,184,41,14
+    CONTROL         "",IDC_STATUSBAR,"msctls_statusbar32",0x803,0,203,217,14
+END
+
+IDD_PARAMSDLG DIALOG DISCARDABLE  0, 0, 312, 199
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Enter Parameter"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "x",IDC_STATIC1,7,7,151,8
+    EDITTEXT        IDC_EDIT1,160,5,101,12,ES_AUTOHSCROLL
+    COMBOBOX        IDC_COMBO1,267,5,42,77,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "x",IDC_STATIC2,7,20,151,8
+    EDITTEXT        IDC_EDIT2,160,18,101,12,ES_AUTOHSCROLL
+    COMBOBOX        IDC_COMBO2,267,18,42,76,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "x",IDC_STATIC3,7,33,151,8
+    EDITTEXT        IDC_EDIT3,160,31,101,12,ES_AUTOHSCROLL
+    COMBOBOX        IDC_COMBO3,267,31,42,75,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "x",IDC_STATIC4,7,46,151,8
+    EDITTEXT        IDC_EDIT4,160,44,101,12,ES_AUTOHSCROLL
+    COMBOBOX        IDC_COMBO4,267,44,42,73,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "x",IDC_STATIC5,7,59,151,8
+    EDITTEXT        IDC_EDIT5,160,57,101,12,ES_AUTOHSCROLL
+    COMBOBOX        IDC_COMBO5,267,57,42,72,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "x",IDC_STATIC6,7,72,151,8
+    EDITTEXT        IDC_EDIT6,160,70,101,12,ES_AUTOHSCROLL
+    COMBOBOX        IDC_COMBO6,267,70,42,73,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "x",IDC_STATIC7,7,85,151,8
+    EDITTEXT        IDC_EDIT7,160,83,101,12,ES_AUTOHSCROLL
+    COMBOBOX        IDC_COMBO7,267,83,42,79,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "x",IDC_STATIC8,7,98,151,8
+    EDITTEXT        IDC_EDIT8,160,96,101,12,ES_AUTOHSCROLL
+    COMBOBOX        IDC_COMBO8,267,96,42,84,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "x",IDC_STATIC9,7,111,151,8
+    EDITTEXT        IDC_EDIT9,160,109,101,12,ES_AUTOHSCROLL
+    COMBOBOX        IDC_COMBO9,267,109,42,84,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "x",IDC_STATIC10,7,124,151,8
+    EDITTEXT        IDC_EDIT10,160,122,101,12,ES_AUTOHSCROLL
+    COMBOBOX        IDC_COMBO10,267,122,42,84,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    PUSHBUTTON      "Browse ...",IDC_BROWSE,32,165,50,14
+    PUSHBUTTON      "Paste Object",IDC_PASTE,98,165,50,14,WS_DISABLED
+    DEFPUSHBUTTON   "OK",IDOK,164,165,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,230,165,50,14
+    CONTROL         "",IDC_STATUSBAR,"msctls_statusbar32",0x803,0,184,312,14
+    LTEXT           "x",IDC_STATIC11,7,137,151,8
+    EDITTEXT        IDC_EDIT11,160,135,101,12,ES_AUTOHSCROLL
+    COMBOBOX        IDC_COMBO11,267,135,42,84,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "x",IDC_STATIC12,7,150,151,8
+    EDITTEXT        IDC_EDIT12,160,148,101,12,ES_AUTOHSCROLL
+    COMBOBOX        IDC_COMBO12,267,148,42,84,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+END
+
+IDD_COLLECTIONDLG DIALOGEX 10, 10, 205, 192
+STYLE WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU | 
+    WS_THICKFRAME
+CAPTION "Collection"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Close",IDCANCEL,149,171,47,14
+    CONTROL         "",IDC_LIST1,"SysListView32",LVS_REPORT | LVS_SINGLESEL | 
+                    LVS_SHOWSELALWAYS | WS_TABSTOP,7,7,191,157,
+                    WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Refresh",IDC_REFRESH,10,171,47,14
+    PUSHBUTTON      "Put Property",IDC_PUTPROP,78,171,50,14
+END
+
+IDD_LOGWINDOW DIALOGEX 0, 0, 283, 152
+STYLE DS_CENTER | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_CAPTION | WS_SYSMENU | 
+    WS_THICKFRAME
+CAPTION "COMView Log Window"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_LIST1,"SysListView32",LVS_REPORT | 
+                    LVS_SHOWSELALWAYS | LVS_NOCOLUMNHEADER | WS_BORDER | 
+                    WS_TABSTOP,0,0,282,152,WS_EX_CLIENTEDGE
+END
+
+IDD_ABOUTDLG DIALOG DISCARDABLE  0, 0, 187, 98
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About COMView"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Close",IDCANCEL,68,77,50,14
+    ICON            IDI_ICON1,IDC_STATIC,16,30,20,20
+    EDITTEXT        IDC_EDIT1,41,10,106,56,ES_CENTER | ES_MULTILINE | 
+                    ES_READONLY | NOT WS_BORDER
+    GROUPBOX        "",IDC_STATIC,7,5,173,68
+END
+
+IDD_OPTPAGE_PROPERTIES DIALOG DISCARDABLE  0, 0, 241, 169
+STYLE DS_CONTROL | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "Properties Dialog",IDC_STATIC,8,7,226,96
+    CONTROL         "Open dialog as top level window",IDC_CHECK8,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,13,18,208,10
+    CONTROL         "Open each properties dialog in its own window",
+                    IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,28,
+                    208,10
+    CONTROL         "Show result of methods returning IDispatch in a properties dialog",
+                    IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,38,
+                    208,10
+    CONTROL         "Close typelib dialog with properties dialog",IDC_CHECK3,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,48,208,10
+    CONTROL         "Display translation of userdefined types",IDC_CHECK4,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,58,208,10
+    CONTROL         "Don't get properties of type IDispatch during property scan",
+                    IDC_CHECK5,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,68,
+                    208,10
+    CONTROL         "Log Invoke calls",IDC_CHECK6,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,78,208,10
+    CONTROL         "Show ""Set TypeInfo"" menu item",IDC_CHECK7,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,13,88,208,10
+    GROUPBOX        "Collection Dialog",IDC_STATIC,8,106,226,49
+    CONTROL         "Open dialog as top level window",IDC_CHECK9,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,14,117,208,10
+    CONTROL         "Close dialog if ""view"" command is executed",
+                    IDC_CHECK10,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,14,127,
+                    210,10
+    EDITTEXT        IDC_EDIT1,14,139,27,12,ES_AUTOHSCROLL
+    LTEXT           "max. number of items",IDC_STATIC,46,140,145,8
+END
+
+IDD_ENUMFORMATETCDLG DIALOG DISCARDABLE  20, 20, 320, 174
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Show EnumFORMATETC"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Close",IDCANCEL,135,139,50,14
+    CONTROL         "",IDC_LIST1,"SysListView32",LVS_REPORT | LVS_SINGLESEL | 
+                    LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,7,306,128
+    CONTROL         "",IDC_STATUSBAR,"msctls_statusbar32",0x803,0,160,320,14
+END
+
+IDD_SERVICEPROVIDERDLG DIALOG DISCARDABLE  0, 0, 207, 92
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Interface IServiceProvider"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,45,71,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,111,71,50,14
+    LTEXT           "Service GUID",IDC_STATIC,8,35,63,8
+    LTEXT           "Service IID",IDC_STATIC,8,53,63,8
+    EDITTEXT        IDC_EDIT1,75,32,125,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,75,50,125,14,ES_AUTOHSCROLL
+    LTEXT           "Enter a service GUID (SID) and a IID in string format ""{xxxxxxxx-xxxx-...}""",
+                    IDC_STATIC,7,7,193,19
+END
+
+IDD_VTBLDLG DIALOGEX 0, 0, 194, 192
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Vtable"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Close",IDCANCEL,72,171,50,14
+    CONTROL         "",IDC_LIST1,"SysListView32",LVS_REPORT | LVS_SINGLESEL | 
+                    LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,7,180,158,
+                    WS_EX_CLIENTEDGE
+END
+
+IDD_ENTERCLSID DIALOG DISCARDABLE  0, 0, 187, 79
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Enter CLSID string"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,37,58,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,103,58,50,14
+    GROUPBOX        "Enter CLSID for IClassFactory object",IDC_STATIC,7,7,
+                    173,40
+    EDITTEXT        IDC_EDIT1,16,26,152,14,ES_AUTOHSCROLL
+END
+
+IDD_VIEWSTORAGEDLG DIALOGEX 0, 0, 371, 212
+STYLE DS_MODALFRAME | DS_CENTER | WS_MINIMIZEBOX | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_TREE1,"SysTreeView32",TVS_HASBUTTONS | 
+                    TVS_HASLINES | TVS_LINESATROOT | TVS_EDITLABELS | 
+                    TVS_DISABLEDRAGDROP | TVS_SHOWSELALWAYS | WS_TABSTOP,2,4,
+                    307,85,WS_EX_CLIENTEDGE
+    CONTROL         "",IDC_CUSTOM1,"HEXEDIT",WS_DISABLED | WS_TABSTOP | 0x36,
+                    2,91,307,104,WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Cr&eate Object",IDM_LOADSTORAGE,316,5,50,14
+    PUSHBUTTON      "Re&write",IDC_UPDATE,316,22,50,14,WS_DISABLED
+    PUSHBUTTON      "Co&mmit",IDC_COMMIT,316,39,50,14
+    PUSHBUTTON      "Re&vert",IDC_REVERT,316,56,50,14
+    PUSHBUTTON      "&Refresh",IDM_REFRESH,316,83,50,14
+    PUSHBUTTON      "&Object",IDM_OBJECTDLG,316,100,50,14
+    PUSHBUTTON      "&Save As",IDM_STG2FILE,316,117,50,14
+    PUSHBUTTON      "&Close",IDCANCEL,316,134,50,14
+    LTEXT           "",IDC_SPLITBTN,363,135,8,8,SS_NOTIFY | NOT WS_GROUP
+    CONTROL         "",IDC_STATUSBAR,"msctls_statusbar32",0x803,0,198,371,14
+END
+
+IDD_OPTPAGE_CONTROL DIALOG DISCARDABLE  0, 0, 250, 171
+STYLE DS_CONTROL | WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Open dialog as top level window",IDC_CHECK1,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,9,7,207,10
+    CONTROL         "Show inactive objects with IViewObject::Draw",
+                    IDC_CHECK7,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,9,17,
+                    207,10
+    CONTROL         "Confirm save requests in IOleClientSite::SaveObject",
+                    IDC_CHECK8,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,9,27,
+                    207,10
+    CONTROL         "Use IQuickActivate if available",IDC_CHECK9,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,9,37,207,10
+    CONTROL         "Use IPointerInactive if available",IDC_CHECK16,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,9,47,207,10
+    CONTROL         "Initialize with IPersistPropertyBag::Load/InitNew if available",
+                    IDC_CHECK10,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,9,57,
+                    207,10
+    CONTROL         "Initialize with IPersistStreamInit::Load/InitNew if available",
+                    IDC_CHECK11,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,9,67,
+                    207,10
+    CONTROL         "Initialize with IPersistFile::Load if available",
+                    IDC_CHECK12,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,9,77,
+                    207,10
+    CONTROL         "Log calls of containers's QueryInterface method",
+                    IDC_CHECK13,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,9,87,
+                    207,10
+    CONTROL         "Log calls of container's other methods",IDC_CHECK14,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,9,97,207,10
+    CONTROL         "Support IOleInPlaceSiteEx",IDC_CHECK2,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,9,110,200,10
+    CONTROL         "Support IOleInPlaceSiteWindowless (allows windowless activation)",
+                    IDC_CHECK3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,9,120,
+                    221,10
+    CONTROL         "Support IDispatch",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,9,130,221,10
+    CONTROL         "Support IOleDocumentSite",IDC_CHECK5,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,9,140,221,10
+    CONTROL         "Support IOleCommandTarget",IDC_CHECK6,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,9,150,221,10
+    CONTROL         "Support IServiceProvider",IDC_CHECK15,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,9,160,221,11
+END
+
+IDD_AMBIENTPROPDLG DIALOGEX 0, 0, 289, 166
+STYLE DS_MODALFRAME | DS_CENTER | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | 
+    WS_CAPTION | WS_SYSMENU
+CAPTION "Ambient Properties"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | 
+                    LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,7,7,275,132,
+                    WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Close",IDCANCEL,119,145,50,14
+END
+
+IDD_EXCEPTIONDLG DIALOG DISCARDABLE  0, 0, 286, 89
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "COMView: An Exception has occured. Select next action to take"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "",IDC_STATIC1,7,7,272,15
+    CONTROL         "Transfer control to the exception handler and try to ignore the error. ",
+                    IDC_RADIO3,"Button",BS_AUTORADIOBUTTON | WS_GROUP,7,28,
+                    272,10
+    CONTROL         "Search up the stack for another handler. May cause COMView to terminate.",
+                    IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,7,40,272,10
+    CONTROL         "Dismiss Exception. Try to continue execution at the point where the exception occurred.",
+                    IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,7,52,272,10
+    PUSHBUTTON      "Close",IDCANCEL,118,68,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENU3 MENU DISCARDABLE 
+BEGIN
+    POPUP "Edit"
+    BEGIN
+        POPUP "&New"
+        BEGIN
+            MENUITEM "&Key",                        IDM_KEY
+            MENUITEM SEPARATOR
+            MENUITEM "&String",                     IDM_STRING
+            MENUITEM "&Binary",                     IDM_BINARY
+            MENUITEM "&DWord",                      IDM_DWORD
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "&Rename",                     IDM_RENAME
+        MENUITEM "&Delete",                     IDM_DELETE
+    END
+END
+
+IDR_MENU1 MENU DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&Load Type Library...\tCtrl+L", IDM_LOADTYPELIB
+        MENUITEM "&Register Server...\tCtrl+R", IDM_REGISTER
+        MENUITEM SEPARATOR
+        MENUITEM "&Bind to File...\tCtrl+B",    IDM_LOADFILE
+        MENUITEM "Create Lin&k to File...",     IDM_CREATELINK
+        MENUITEM "OleGet&Clipboard",            IDM_PASTE
+        MENUITEM "Shell &Desktop Folder",       IDM_SHDESKTOPFOLDER
+        MENUITEM SEPARATOR
+        MENUITEM "&Open Storage...\tCtrl+O",    IDM_OPENSTORAGE
+        MENUITEM "&View temporary Storage",     IDM_VIEWSTORAGE, GRAYED
+        MENUITEM "O&pen Stream...",             IDM_OPENSTREAM
+        MENUITEM "View &temporary Stream",      IDM_VIEWSTREAM, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "&Save as...\tCtrl+S",         IDM_SAVEAS
+        MENUITEM SEPARATOR
+        MENUITEM "OL&E/COM+/RPC Settings...",   IDM_OLEREG
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       IDM_EXIT
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Edit...\tCtrl+E",            IDM_EDIT
+        MENUITEM "&Copy\tCtrl+C",               IDM_COPY
+        MENUITEM "Copy &GUID to Clipboard\tAlt+C", IDM_COPYGUID
+        MENUITEM "&Remove from View\tCtrl+X",   IDM_REMOVEITEM
+        MENUITEM SEPARATOR
+        MENUITEM "Create &Instance...\tF7",     IDM_CREATEINSTANCE
+        MENUITEM "Create Instance &On...\tF11", IDM_CREATEINSTON
+        MENUITEM "Get Class Factor&y...",       IDM_GETCLASSFACT
+        MENUITEM "View &Type Library...\tF4",   IDM_TYPELIBDLG
+        MENUITEM SEPARATOR
+        MENUITEM "&Find...\tF3",                IDM_FIND
+        MENUITEM "Find &All...",                IDM_FINDALL
+        MENUITEM SEPARATOR
+        MENUITEM "Select All\tCtrl+A",          IDM_SELECTALL
+        MENUITEM "Invert &Selection\tCtrl+Y",   IDM_INVERT
+        MENUITEM SEPARATOR
+        MENUITEM "&Unregister Server...",       IDM_UNREGISTER
+        MENUITEM SEPARATOR
+        MENUITEM "E&xplore...\tF8",             IDM_EXPLORE
+        MENUITEM "Pr&operties...\tF9",          IDM_PROPERTIES
+    END
+    POPUP "&View"
+    BEGIN
+        MENUITEM "Object &Classes (CLSID)\tAlt+1", IDM_CLSID
+        MENUITEM "&Type Libraries (TypeLib)\tAlt+2", IDM_TYPELIB
+        MENUITEM "&Interfaces (Interface)\tAlt+3", IDM_INTERFACE
+        MENUITEM "&Application IDs (AppID)\tAlt+4", IDM_APPID
+        MENUITEM "C&omponent Categories\tAlt+5", IDM_COMPCAT
+        MENUITEM "All entries in &HKCR\tAlt+6", IDM_HKCR
+        MENUITEM "Cr&eated Objects\tAlt+7",     IDM_OBJECT
+        MENUITEM "Running Object Table\tAlt+8", IDM_ROT
+        MENUITEM SEPARATOR
+        MENUITEM "&Refresh\tF5",                IDM_REFRESH
+    END
+    POPUP "&Special"
+    BEGIN
+        MENUITEM "Check &File links",           IDM_CHECKFILE
+        MENUITEM "Check &Typelib links",        IDM_CHECKTYPELIB
+        MENUITEM "Check &CLSID links",          IDM_CHECKCLSID
+        MENUITEM "Check &ProgID links",         IDM_CHECKPROGID
+        MENUITEM "Check &AppID links",          IDM_CHECKAPPID
+        MENUITEM SEPARATOR
+        MENUITEM "Show Log Window...\tF12",     IDM_LOGWINDOW
+        MENUITEM SEPARATOR
+        MENUITEM "Am&bient Properties...",      IDM_AMBIENTPROP
+        MENUITEM SEPARATOR
+        MENUITEM "&Options...\tF2",             IDM_OPTIONS
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&Contents...\tF1",            IDM_HELP
+        MENUITEM SEPARATOR
+        MENUITEM "Check for Update",            IDM_CHECKUPD
+        MENUITEM SEPARATOR
+        MENUITEM "&About COMView...",           IDM_ABOUT
+    END
+END
+
+IDR_MENU2 MENU DISCARDABLE 
+BEGIN
+    POPUP "ObjectDlg"
+    BEGIN
+        MENUITEM "&View Interface ...",         IDM_VIEWINTERFACE
+        MENUITEM "&Edit registry ...",          IDM_EDIT
+        MENUITEM "&Copy IID to Clipboard",      IDM_COPYGUID
+        MENUITEM "Cop&y Object to Clipboard",   IDM_COPYOBJECT
+        MENUITEM "View VTa&ble...",             IDM_VIEWVTBL
+        MENUITEM SEPARATOR
+        MENUITEM "&Properties ...",             IDM_PROPERTIESDLG
+        MENUITEM "&TypeInfo ...",               IDM_TYPEINFODLG
+        MENUITEM "Type&Lib ...",                IDM_TYPELIBDLG
+        MENUITEM "View &Object ...",            IDM_VIEWOBJECT
+        MENUITEM "&Security Settings",          IDM_SECURITY
+    END
+    POPUP "TypeInfoDlg"
+    BEGIN
+        MENUITEM "&View Item...",               IDM_VIEW
+        MENUITEM "View &ref. TypeInfo...",      IDM_TYPEINFOREF
+        MENUITEM "&Copy\tCtrl+C",               IDM_COPY
+        MENUITEM "&Help",                       IDM_CONTEXTHELP
+    END
+    POPUP "TypeLibDlg"
+    BEGIN
+        MENUITEM "&View...",                    IDM_VIEW
+        MENUITEM "Create &Instance...",         IDM_CREATE
+        MENUITEM "IClass&Factory::CreateInstance", IDM_GETCLASS
+        MENUITEM SEPARATOR
+        MENUITEM "&Edit...",                    IDM_EDIT
+        MENUITEM "&Copy\tCtrl+C",               IDM_COPY
+        MENUITEM "Copy &GUID to Clipboard\tAlt+C", IDM_COPYGUID
+        MENUITEM SEPARATOR
+        MENUITEM "&Help",                       IDM_CONTEXTHELP
+    END
+    POPUP "LogWindow"
+    BEGIN
+        MENUITEM "Cu&t\tCtrl+X",                IDM_CUT
+        MENUITEM "&Copy\tCtrl+C",               IDM_COPY
+        MENUITEM "&Delete\tDel",                IDM_DELETE
+        MENUITEM SEPARATOR
+        MENUITEM "Select &All\tCtrl+A",         IDM_SELECTALL
+        MENUITEM SEPARATOR
+        MENUITEM "Set Font...",                 IDM_CHOOSEFONT
+    END
+    POPUP "PropertiesDlg"
+    BEGIN
+        MENUITEM "&Edit/Execute",               IDM_EDITITEM
+        MENUITEM "&Copy Value to Clipboard",    IDM_COPYVALUE
+        MENUITEM "&Help",                       IDM_CONTEXTHELP
+        MENUITEM SEPARATOR
+        MENUITEM "Show &TypeInfo",              IDM_TYPEINFO
+        MENUITEM "Display &Values in Hex",      IDM_HEXADECIMAL
+        MENUITEM "Show &all members",           IDM_SHOWALL
+        MENUITEM "&Use ITypeInfo::Invoke",      IDM_USETIINVOKE
+        MENUITEM "&Set TypeInfo",               IDM_FORCETYPEINFO
+    END
+    POPUP "ObjectDlg2"
+    BEGIN
+        MENUITEM "&Connect",                    IDM_CONNECT
+        MENUITEM "&Disconnect",                 IDM_DISCONNECT
+        MENUITEM "&TypeInfo ...",               IDM_TYPEINFODLG
+        MENUITEM "Type&Lib ...",                IDM_TYPELIBDLG
+        MENUITEM "&Edit registry ...",          IDM_EDIT
+    END
+    POPUP "CollectionDlg"
+    BEGIN
+        MENUITEM "&View",                       IDOK
+        MENUITEM "&Explore Mode",               IDM_EXPLORE
+    END
+END
+
+IDR_MENU4 MENU DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "Load from a File...",         IDM_LOADFROMFILE, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "&Save in a Stream",           IDM_SAVESTREAM, GRAYED
+        MENUITEM "Save in a S&torage",          IDM_SAVESTORAGE, GRAYED
+        MENUITEM "Save in a &File...",          IDM_SAVEFILE, GRAYED
+        MENUITEM "Save in a &Property Bag",     IDM_SAVEPROPBAG, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       IDM_EXITVIEWDLG
+    END
+    POPUP "&Actions"
+    BEGIN
+        POPUP "Do&Verb"
+        BEGIN
+            MENUITEM "&Primary",                    IDM_PRIMARY
+            MENUITEM "&Show",                       IDM_SHOW
+            MENUITEM "&Open",                       IDM_OPEN
+            MENUITEM "&Hide",                       IDM_HIDE
+            MENUITEM "UIActivate",                  IDM_UIACTIVATE
+            MENUITEM "&Inplace Activate",           IDM_INPLACEACTIVATE
+            MENUITEM "P&roperties",                 IDM_VERBPROPERTIES
+        END
+        MENUITEM "&Close",                      IDM_CLOSEOBJECT
+        MENUITEM "&Deactivate",                 IDM_INPLACEDEACTIVATE
+        , GRAYED
+        MENUITEM "&UIDeactivate",               IDM_UIDEACTIVATE, GRAYED
+        MENUITEM "U&pdate",                     IDM_UPDATE
+        MENUITEM "&Advise (IOleObject)",        IDM_ADVISE
+        MENUITEM "Advise (IViewObject)",        IDM_VIEWADVISE
+        MENUITEM "Advise (IDataObject)",        IDM_DATAADVISE
+    END
+    POPUP "&Options"
+    BEGIN
+        MENUITEM "&Filename in Caption",        IDM_FILENAME
+        MENUITEM SEPARATOR
+        MENUITEM "&Object...",                  IDM_OBJECTDLG
+        MENUITEM "&Properties ...",             IDM_PROPERTIESDLG
+        MENUITEM "&Storage...",                 IDM_VIEWSTORAGEDLG
+        MENUITEM SEPARATOR
+        MENUITEM "&TypeInfo ...",               IDM_TYPEINFODLG
+    END
+END
+
+IDR_MENU5 MENU DISCARDABLE 
+BEGIN
+    POPUP "Edit"
+    BEGIN
+        MENUITEM "&Undo\tCtrl+Z",               IDM_UNDO
+        MENUITEM "&Redo\tCtrl+Y",               IDM_REDO
+        MENUITEM SEPARATOR
+        MENUITEM "Cu&t\tCtrl+X",                IDM_CUT
+        MENUITEM "&Copy\tCtrl+C",               IDM_COPY
+        MENUITEM "&Paste\tCtrl+V",              IDM_PASTE
+        MENUITEM "&Delete\tDel",                IDM_DELETE
+        MENUITEM "Select &All\tCtrl+A",         IDM_SELECTALL
+    END
+END
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include <windows.h>\r\n"
+    "#define IDC_STATIC (-1)\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_ACCELERATOR1 ACCELERATORS DISCARDABLE 
+BEGIN
+    "1",            IDM_CLSID,              VIRTKEY, ALT, NOINVERT
+    "2",            IDM_TYPELIB,            VIRTKEY, ALT, NOINVERT
+    "3",            IDM_INTERFACE,          VIRTKEY, ALT, NOINVERT
+    "4",            IDM_APPID,              VIRTKEY, ALT, NOINVERT
+    "5",            IDM_COMPCAT,            VIRTKEY, ALT, NOINVERT
+    "6",            IDM_HKCR,               VIRTKEY, ALT, NOINVERT
+    "7",            IDM_OBJECT,             VIRTKEY, ALT, NOINVERT
+    "8",            IDM_ROT,                VIRTKEY, ALT, NOINVERT
+    "A",            IDM_SELECTALL,          VIRTKEY, CONTROL, NOINVERT
+    "B",            IDM_LOADFILE,           VIRTKEY, CONTROL, NOINVERT
+    "C",            IDM_COPY,               VIRTKEY, CONTROL, NOINVERT
+    "C",            IDM_COPYGUID,           VIRTKEY, ALT, NOINVERT
+    "E",            IDM_EDIT,               VIRTKEY, CONTROL, NOINVERT
+    "L",            IDM_LOADTYPELIB,        VIRTKEY, CONTROL, NOINVERT
+    "O",            IDM_OPENSTORAGE,        VIRTKEY, CONTROL, NOINVERT
+    "R",            IDM_REGISTER,           VIRTKEY, CONTROL, NOINVERT
+    "S",            IDM_SAVEAS,             VIRTKEY, CONTROL, NOINVERT
+    VK_F11,         IDM_CREATEINSTON,       VIRTKEY, NOINVERT
+    VK_F12,         IDM_LOGWINDOW,          VIRTKEY, NOINVERT
+    VK_F2,          IDM_OPTIONS,            VIRTKEY, NOINVERT
+    VK_F3,          IDM_FIND,               VIRTKEY, NOINVERT
+    VK_F3,          IDM_FINDNEXTCROSS,      VIRTKEY, CONTROL, NOINVERT
+    VK_F4,          IDM_TYPELIBDLG,         VIRTKEY, NOINVERT
+    VK_F5,          IDM_REFRESH,            VIRTKEY, NOINVERT
+    VK_F5,          IDM_REFRESHVIEW,        VIRTKEY, CONTROL, NOINVERT
+    VK_F6,          IDM_OBJECTDLG,          VIRTKEY, NOINVERT
+    VK_F6,          IDM_VIEWMALLOC,         VIRTKEY, SHIFT, NOINVERT
+    VK_F7,          IDM_CREATEINSTANCE,     VIRTKEY, NOINVERT
+    VK_F8,          IDM_EXPLORE,            VIRTKEY, NOINVERT
+    VK_F9,          IDM_PROPERTIES,         VIRTKEY, NOINVERT
+    "X",            IDM_REMOVEITEM,         VIRTKEY, CONTROL, NOINVERT
+    "Y",            IDM_INVERT,             VIRTKEY, CONTROL, NOINVERT
+END
+
+IDR_ACCELERATOR2 ACCELERATORS DISCARDABLE 
+BEGIN
+    "A",            IDM_SELECTALL,          VIRTKEY, CONTROL, NOINVERT
+    "C",            IDM_COPYGUID,           VIRTKEY, ALT, NOINVERT
+    VK_F5,          IDM_REFRESH,            VIRTKEY, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_OBJECTDLG, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 221
+    END
+
+    IDD_EDITREGDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 323
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 235
+    END
+
+    IDD_OPTPAGE_GENERAL, DIALOG
+    BEGIN
+        LEFTMARGIN, 8
+    END
+
+    IDD_OPTPAGE_TYPELIB, DIALOG
+    BEGIN
+        LEFTMARGIN, 8
+        TOPMARGIN, 7
+    END
+
+    IDD_OPTPAGE_INTERFACE, DIALOG
+    BEGIN
+        LEFTMARGIN, 8
+    END
+
+    IDD_OPTPAGE_HKCR, DIALOG
+    BEGIN
+        LEFTMARGIN, 8
+    END
+
+    IDD_OPTPAGE_OBJECT, DIALOG
+    BEGIN
+        LEFTMARGIN, 8
+        RIGHTMARGIN, 220
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 169
+    END
+
+    IDD_TYPEINFODLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 407
+        TOPMARGIN, 3
+    END
+
+    IDD_VIEWOBJECTDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 4
+        RIGHTMARGIN, 290
+        TOPMARGIN, 4
+        BOTTOMMARGIN, 173
+    END
+
+    IDD_VIEWDETAIL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 217
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 158
+    END
+
+    IDD_PROPERTIESDLG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 211
+    END
+
+    IDD_PARAMSDLG, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 198
+    END
+
+    IDD_COLLECTIONDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 198
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 185
+    END
+
+    IDD_LOGWINDOW, DIALOG
+    BEGIN
+        RIGHTMARGIN, 282
+    END
+
+    IDD_ABOUTDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 91
+    END
+
+    IDD_OPTPAGE_PROPERTIES, DIALOG
+    BEGIN
+        LEFTMARGIN, 8
+        RIGHTMARGIN, 234
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 162
+    END
+
+    IDD_ENUMFORMATETCDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 313
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 156
+    END
+
+    IDD_SERVICEPROVIDERDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 200
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 85
+    END
+
+    IDD_VTBLDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 187
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 185
+    END
+
+    IDD_ENTERCLSID, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 72
+    END
+
+    IDD_OPTPAGE_CONTROL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 243
+        TOPMARGIN, 4
+        BOTTOMMARGIN, 170
+    END
+
+    IDD_AMBIENTPROPDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 282
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 159
+    END
+
+    IDD_EXCEPTIONDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 279
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 82
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+1 VERSIONINFO
+ FILEVERSION 2,8,3,0
+ PRODUCTVERSION 2,8,3,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "000004b0"
+        BEGIN
+            VALUE "CompanyName", "Andreas Grech\0"
+            VALUE "FileDescription", "COMView\0"
+            VALUE "FileVersion", "2, 9, 12, 0\0"
+            VALUE "InternalName", "COMView\0"
+            VALUE "LegalCopyright", "Copyright ©2001- 2011 Japheth\0"
+            VALUE "OriginalFilename", "COMView.exe\0"
+            VALUE "ProductName", "COMView\0"
+            VALUE "ProductVersion", "2, 8, 3, 0\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x0, 1200
+    END
+END
+
+#endif    // !_MAC
+
+#endif    // Neutral resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

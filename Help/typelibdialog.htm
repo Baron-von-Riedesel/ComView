@@ -1,0 +1,79 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html">
+</head>
+
+<body>
+
+
+<H3>Type Library Dialog</H3>
+
+
+This dialog will show all type informations (short: typeinfo)
+of a type library. Typeinfos plays a vital part for automation
+and controls. COMView's <a href="propertiesdialog.htm">properties dialog</a>
+will work only if typeinfo is available for an object.
+
+<BR>&nbsp;<BR>
+
+<IMG SRC="typelibdialog.gif" Border=2><BR>&nbsp;<BR>
+
+Each line in this dialog will display a typeinfo item. Right-clicking an item
+will open a context menu with following items:<BR>
+<UL>
+<LI>
+<B>View</B>: view this item in more detail in a <a href="typeinfodialog.htm">type information dialog</a>.
+</LI>
+<LI>
+<B>Create Instance</B>: creates an object of this type with ITypeInfo::CreateInstance. This command will be enabled for typekind
+COCLASS if flag <i>CanCreate</i> is set. Object creation will succeed only if the CLSID of this coclass is registered, therefore
+it is checked if this entry exists and if it doesn't, the line is grayed and trying to create the object will cause
+error 80040154.</LI>
+<LI>
+<B>IClassFactory::CreateInstance</B>: this command will create an object as does menu item <B>Create Instance</B>.
+In contrast to the latter this command uses functions on a lower level, which may be useful under some circumstances.
+First the library is loaded with CoLoadLibrary, then export DllGetClassObject is called and at last method CreateInstance of returned class factory object is executed.
+So in contrast to <B>Create Instance</B> this command may work even if coclass is NOT registered.
+Enabled only if type library was loaded by name (as with file menu command <i>Load Type Library</i>).
+</LI>
+
+<LI>
+<B>Edit</B>: will open an <a href="editdialog.htm">edit registry dialog</a>.
+Command is enabled if GUID isn't IID_NULL and is found in registry. For items with typekind
+COCLASS GUID is searched in HKEY_CLASSES_ROOT\CLSID, for all other items GUID is
+searched in HKEY_CLASSES_ROOT\Interface. Neither the first nor the latter entry really
+need to exist, though. COM function RegisterTypeLib will insert IIDs of dispatchable interfaces
+(TKIND_DISPATCH) in HKEY_CLASSES_ROOT\Interface, everything else is left to registration process of server object.
+Sometimes ALIAS/ENUM/RECORD/UNION types have GUIDs assigned, which most likely won't be found anywhere.
+</LI>
+<LI>
+<B>Copy GUID to Clipboard</B>: copies GUID of current type information to clipboard.
+</LI>
+<LI>
+<B>Help</B>: if available displays context sensitive help.
+</LI>
+
+</UL>
+
+Other commands accessible through buttons are:<BR>
+<UL>
+<LI><B>Register TypeLib</B>: This command will be enabled if type library isn't registered yet,
+that is, its GUID isn't found as subkey in HKEY_CLASSES_ROOT\TypeLib. That's possibly the case
+if type library is loaded by command <a href="mainwindowmenu.htm#FileSubMenu">Load Type Library</a>.
+</LI>
+<LI><B>Unregister TypeLib</B>: will call COM function UnregisterTypeLib. Unregistering will delete
+registry subkeys from HKEY_CLASSES_ROOT\TypeLib and HKEY_CLASSES_ROOT\Interface only,
+entries in HKEY_CLASSES_ROOT\CLSID (typekind COCLASS) aren't removed.
+</LI>
+<LI><B>Create ASM Include</B>: will create an ASM basic include file.
+For details see description of <a href="asmincludes.htm">ASM Includes</a>.
+</LI>
+<LI><B>Create Dispatch Helper</B>: will create a Dispatch Helper include file.
+For details see description of <a href="dispatchhelper.htm">Dispatch Helper Includes</a>).
+</LI>
+</UL>
+
+</body>
+
+</html>

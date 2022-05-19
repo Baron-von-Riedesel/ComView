@@ -1,0 +1,194 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html">
+</head>
+
+<body>
+
+<H3>Object Dialog</H3>
+
+
+This dialog will alway pop up if a new object is
+created or an item is double-clicked in 
+<a href="mainwindowviews.htm#ViewCreatedObjects">created objects view</a> or
+<a href="mainwindowviews.htm#ViewROT">ROT view</a>.
+<BR>&nbsp;<BR>
+
+<IMG SRC="objectdialog.gif" Border=2><BR>&nbsp;<BR>
+
+<H4>List of implemented Interfaces</H4>
+
+The upper list will show the interfaces exposed by the object.
+Right-clicking an item will open a context menu. Functions available here are:<BR>&nbsp;<BR>
+
+<IMG SRC="objectmenu1.gif" Border=2><BR>&nbsp;<BR>
+
+<UL>
+<LI>
+<B>View Interface</B>: will call external or internal interface viewer for current interface.
+External viewers have higher priority and must be <i>OLEView-compatible</i>.
+Internal viewers implemented so far are:
+
+<UL>
+
+<LI><B>IClassFactory2</B>: displays license information.
+</LI>
+
+<LI><B>IDataObject</B>: enumerates supported clipboard formats.
+</LI>
+
+<LI><B>IOleLink</B>: displays source display name and update options.
+</LI>
+
+<LI><B>IOleWindow</B>: displays window handle.
+</LI>
+
+<LI><B>IPersistFile</B>: displays current file.
+</LI>
+
+<LI><B>IPropertySetStorage</B>: displays property sets of a storage.
+</LI>
+
+<LI><B>IPropertyStorage</B>: displays a property set.
+</LI>
+
+<LI><B>IServiceProvider</B>: allows user to query object for a service.
+If successful, a new object dialog will be opened.
+</LI>
+
+<LI><B>ISpecifyPropertyPages</B>: displays property pages.
+</LI>
+
+<LI><B>IStorage</B>: displays storage in a 
+<a href="viewstoragedialog.htm">view storage dialog</a>.
+</LI>
+
+</UL>
+
+</LI>
+<LI><B>Edit Registry</B>: will open <a href="propertiesdialog.htm">registry editor dialog</a> for current interface.
+</LI>
+<LI><B>Copy IID to Clipboard</B>: copies IID to clipboard as text.
+</LI>
+<LI><B>View VTable</B>: opens a simple dialog which shows number/name of methods in vtable and their address. Remember that
+for out-of-process servers one will see addresses of proxy only.
+</LI>
+<LI><B>Properties</B>: This command, which will be enabled only if currently selected interface
+supplies type information, will open a <a href="propertiesdialog.htm">properties dialog</a>.
+This function may be reached by button <i>Properties</i> as well, but be aware of
+that an object may expose more than one interface with type information
+(for example the listview control in COMCTL32.OCX exposes IListView, IListItems and IColumnHeaders).
+</LI>
+<LI><B>TypeInfo</B>: This command, which will be enabled only if object supplies type
+information, will open a <a href="typeinfodialog.htm">type information dialog</a>.
+</LI>
+<LI><B>TypeLib</B>: This command, which will be enabled only if object supplies type
+information, will open a <a href="typelibdialog.htm">type library dialog</a>.
+</LI>
+<LI><B>View Object</B>: This command is enabled for interfaces IViewObject, IViewObject2 and IOleObject
+and will open a <a href="viewdialog.htm">view control dialog</a>.
+For IOleObject interface function is the same as with button <i>View</i>.
+For IViewObjectX interfaces this command enables the user to view an object's representation without activating it.
+</LI>
+<LI><B>Security Settings</B>: Command is enabled if interface IClientSecurity is exposed by the server.
+Values returned by IClientSecurity::QueryBlanket are displayed.
+</LI>
+</UL>
+
+<BR>
+
+<H4>List of outgoing Interfaces</H4>
+
+The lower list will show
+&quot;outgoing&quot; interfaces (if any) the object supports.
+Right-clicking an item will open a context menu. Functions available here are:<BR>&nbsp;<BR>
+
+<IMG SRC="objectmenu2.gif" Border=2><BR>&nbsp;<BR>
+
+<UL>
+<LI><B>Connect</B> to a source interface of the object.
+This menu item will be enabled if interface is dispatchable or if it is of
+type IPropertyNotifySink or DataSourceListener.
+Other outgoing interfaces are currently unknown to COMView.
+After connection is established item's text color will become green.
+The third column will show the number of connections to this source so far.
+To view incoming events from the object you may need to
+open the <a href="logwindow.htm">Log window</a>.
+After connection to IPropertyNotifySink has been established,
+bindable properties will be updated automatically in <a href="propertiesdialog.htm">properties dialog</a>!
+</LI>
+<LI><B>Disconnect</B> menu command is enabled if a connection to selected interface
+has been established. Selecting it will close connection.
+</LI>
+<LI><B>TypeInfo</B> command will open a <a href="typeinfodialog.htm">type information dialog</a>.</LI>
+<LI><B>TypeLib</B> command will open a <a href="typelibdialog.htm">type library dialog</a>.</LI>
+<LI><B>Edit registry</B> command will open a <a href="editdialog.htm">edit registry dialog</a>.</LI>
+</UL>
+
+<BR>
+
+<H4>Other Functions</H4>
+
+<UL>
+
+<LI>
+<B>Storage</B>: This command will be enabled if a storage object is assigned to the object.
+This is the case if object has been created with command <i>Bind to File</i>, for example.
+A <a href="viewstoragedialog.htm">view storage dialog</a> will be opened.
+</LI>
+
+<LI>
+Button <B>Run</B> may be used
+to deliberately put an object from <i>loaded</i> to <i>running</i> state.
+</LI>
+
+<LI>
+<B>Refresh</B> will scan object again for exposed interfaces.
+</LI>
+
+<LI>
+Pressing <B>Lock Object</B> will increase object's reference count, 
+so it is not destroyed when no longer referenced. It may be accessed and unlocked
+from within view <a href="mainwindowviews.htm#ViewCreatedObjects">created objects</a>.
+</LI>
+
+</UL>
+
+<H4>Hints</H4>
+
+<UL>
+<LI>
+if message
+<i>IMultiQI::QueryMultipleInterfaces returned XXXXXXXX, but didn't release all interfaces!</i>
+appears in this dialog, it may be regarded as hint, because COMView is able to correct that error.
+</LI>
+
+
+<LI>
+You may connect multiple times to an event source.
+Incoming events should then be displayed multiple times in
+<a href="logwindow.htm">Log window</a>.
+This is useful to test a server's correct handling of this case.
+</LI>
+
+
+<LI>
+When COMView queries an object about which interfaces it exposes COMView at first is 
+limited to IIDs it will find in HKEY_CLASSES_ROOT\Interface entry.
+Only if object has been created from inside a type library dialog by function ITypeInfo::CreateInstance,
+COMView will know default interface of object's coclass even if not found in HKCR\Interface.
+To overcome these limitations you may define further interfaces in section [Interfaces] of COMView.ini profile file.
+For example<BR>&nbsp;<BR>
+[Interfaces]<BR>
+{000214E4-0000-0000-C000-000000000046}=IContextMenu<BR>
+...<BR>&nbsp;<BR>
+There is no user interface inside COMView for editing these entries,
+you will have to use a standard text editor. Due to some OS-specific restrictions
+total amount of space for such definitions is limited to 32 kB.
+</LI>
+</UL>
+
+</body>
+
+</html>

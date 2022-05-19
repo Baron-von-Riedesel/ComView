@@ -1,0 +1,98 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html">
+</head>
+
+<H3>Properties Dialog</H3>
+
+This dialog may be opened from inside <a href="objectdialog.htm">object dialog</a> 
+if type information is available for the object. COMView may find type information if
+interfaces IDispatch - or any interface inheriting from IDispatch - or IProvideClassInfo
+are exposed.
+If IDispatch interface isn't available the typeinfo may describe a non-dispatchable interface.
+<BR>&nbsp;<BR>
+
+<IMG SRC="propertiesdialog.gif" Border=2><BR>&nbsp;<BR>
+
+A context menu will pop up by right-clicking an item with commands:
+<UL>
+<LI><B>Edit/Execute</B>: If current property/method has parameters, a
+<a href="paramdialog.htm">parameter dialog</a> will pop up to
+enter these parameters. After that, if current item is a method, it will be executed.
+Action on properties may depend on type of this property, which are<BR>
+<UL>
+<LI><B>String</B> or <B>Number</B>: Item may be edited in-place.</LI>
+<LI><B>Boolean</B>: Value of item will be toggled.</LI>
+<LI><B>IDispatch (VT_DISPATCH):</B>: returned object will be shown in a
+(new) <i>properties</i> dialog. To achieve this behaviour for methods as well,
+set option <i>Show results of methods returning IDispatch ...</i>
+in <a href="optionsdialog.htm#OptionsProperties">properties options</a>.
+</LI>
+<LI><B>IUnknown (VT_UNKNOWN)</B>: returned object may be a collection, in which case
+a <a href="collectiondialog.htm">collection dialog</a> will be opened to view and probably edit items in collection.
+If object is not recognized as a collection, an <a href="objectdialog.htm">object dialog</a> will be shown.
+</LI>
+<LI>
+<B>Array of ...</B>: If property is an array of items a <a href="collectiondialog.htm">collection dialog</a>
+will be opened to view, edit or execute these items.
+</LI>
+</UL>
+
+</LI>
+
+<LI><B>Show TypeInfo</B>: A <a href="typeinfodialog.htm">type information dialog</a> will
+be opened with current item being selected.
+</LI>
+
+<LI><B>Display Values in Hex</B>: Display values of integer properties in Visual Basic style hex format, that is, with a '&H' prefix.
+Please note that sometimes the returned value's type may NOT be as described in the typeinfo.
+For example, if the type of a property is described as VT_I4 in the typeinfo,
+but in fact a variant of type VT_R8 has been returned, it will not be displayed in hexadecimal.
+</LI>
+
+<LI><B>Help</B>: Displays context sensitive help if available.
+</LI>
+
+<LI><B>Show All Members</B>: Restricted members will be included.
+</LI>
+
+<LI><B>Use ITypeInfo::Invoke</B>: Setting this option forces COMView to use
+ITypeInfo::Invoke instead of IDispatch::Invoke for method calls. This option 
+is always set and cannot be changed if type information is of type TKIND_INTERFACE.
+</LI>
+
+<LI><B>Set TypeInfo</B>: This command will only be shown if option is on in 
+<a href="optionsdialog.htm#OptionsProperties">properties options</a> because it is
+useful in rather few circumstances and requires some experience.
+A <a href="typelibdialog.htm">type library dialog</a> will be opened allowing the user
+to select one of the type information entries.
+This type information will then be used instead of the one returned by IDispatch::GetTypeInfo.
+</LI>
+
+</UL>
+
+Other commands accessible through buttons are:<BR>
+<UL>
+<LI><B>Object</B>: An <a href="objectdialog.htm">object dialog</a>
+will be opened for current object.
+</LI>
+<LI><B>View</B>: A <a href="viewdialog.htm">view control dialog</a>
+will be opened. Command isn't available if object doesn't support IOleObject. 
+</LI>
+<LI><B>Type Library</B>: A <a href="typelibdialog.htm">type library dialog</a>
+will be opened.
+</LI>
+<LI><B>Refresh</B>: will refresh current view. A refresh will be done automatically
+if view is switched from <i>properties</i> to <i>methods</i> and vice versa.
+</LI>
+
+</UL>
+
+View <a href="optionsdialog.htm#OptionsProperties">properties options</a> for a
+detailed description of options concerning <i>properties</i> dialog.
+
+<BR>&nbsp;<BR>
+
+</body>
+
+</html>

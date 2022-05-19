@@ -1,0 +1,53 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html">
+</head>
+
+<body>
+
+
+<H3>Log Window</H3>
+
+This window will display 
+<UL>
+<LI>
+internal logs about object creation/deletion
+</LI>
+<LI>
+&quot;incoming&quot;
+events, that is, COMView being called by hosted objects
+</LI>
+</UL>
+The &quot;standard&quot; way to get events from a server in COM is through interface
+IConnectionPointContainer, which must be exposed by the object. If this
+interface is available, the hosting application may &quot;connect&quot; to the
+object and will then be notified of certain events occuring. Therefore to see
+events in the <i>Log</i> window you will have to:<BR>
+<UL>
+
+<LI>create an object exposing interface IConnectionPointContainer</LI>
+
+<LI>in the
+<a href="objectdialog.htm">object dialog</a> right-click an entry in the list of <i>outgoing
+interfaces</i> and select menu item <i>Connect</i></LI>
+
+<LI>open <i>Log</i> window if not already open. Incoming events will only
+be logged if this window is open.</LI>
+
+</UL>
+
+With option <a href="optionsdialog.htm#OptionsGeneral">Log to debugger window</a>
+all messages may be routed to a debugger.
+Furthermore there exist some switches in 
+<a href="optionsdialog.htm#OptionsObject">object options</a>
+to influence the amount of messages displayed.
+So for example it may be interesting to show the control's queries of ambient properties or
+other methods of the OLE container. And COMView may be instructed to log all
+calls to its IUnknown::QueryInterface methods.
+
+<BR>
+
+</body>
+
+</html>

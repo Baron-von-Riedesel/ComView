@@ -1,0 +1,61 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html">
+</head>
+
+<H3>Parameter Dialog</H3>
+
+This dialog will be opened from inside <a href="propertiesdialog.htm">properties dialog</a> 
+if property/method requires parameters.
+<BR>&nbsp;<BR>
+
+<IMG SRC="paramdialog.gif" Border=2><BR>&nbsp;<BR>
+
+The combobox on the right of each parameter input field may allow some parameter type tuning.
+For most parameter types it will show entries VT_EMPTY and VT_BSTR only.
+That's no problem since COMView will try to convert a BSTR to the expected type.
+Exceptions from this are parameters of type:
+<UL>
+<LI>
+<B>VT_VARIANT</B>: In this case you may specify the type of the variant by selecting
+the proper type in the combobox.
+</LI>
+<LI>
+<B>VT_DISPATCH</B>: possible values are VT_EMPTY and VT_DISPATCH.
+The only way to enter a value for such a parameter is to use function <i>Paste Object</i>.
+</LI>
+<LI>
+<B>VT_UNKNOWN</B>: possible values are VT_EMPTY and VT_UNKNOWN.
+The only way to enter a value for such a parameter is to use function <i>Paste Object</i>.
+</LI>
+</UL>
+
+For optional parameters COMView will translate VT_EMPTY to VT_ERROR
+and set scode to DISP_E_PARAMNOTFOUND, which is interpreted as <i>parameter not supplied</i>.
+
+<H4>Button commands</H4>
+<UL>
+<LI>
+<B>Browse</B>: will open a dialog to select a filename which is copied to 
+current parameter field.
+</LI>
+<LI><B>Paste Object</B>: This command will be enabled only if an object has been 
+copied to the clipboard in <a href="objectdialog.htm">object dialog</a> and
+type of current parameter is VT_UNKNOWN or VT_DISPATCH.
+</LI>
+
+</UL>
+
+<H4>Hints</H4>
+<UL>
+<LI>
+To enter a number in hexadecimal use prefix "&H" as in VB.
+</LI>
+<LI>
+Parameter declared as [out] will be displayed in the Log window.
+</LI>
+</UL>
+
+</body>
+
+</html>

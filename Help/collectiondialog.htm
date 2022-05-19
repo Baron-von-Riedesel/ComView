@@ -1,0 +1,57 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html">
+</head>
+
+<H3>Collection Dialog</H3>
+
+This dialog may be opened from inside <a href="propertiesdialog.htm">properties dialog</a> 
+if property is a collection or an array of variants..
+<BR>&nbsp;<BR>
+
+<IMG SRC="collectiondialog.gif" Border=2><BR>&nbsp;<BR>
+
+A context menu will pop up by right-clicking an item with commands:
+<UL>
+<LI><B>View</B>: This command will be enabled if item is of type IDispatch or IUnknown.
+If item is of type IDispatch, it will be shown in
+a <a href="propertiesdialog.htm">properties dialog</a>, else in an 
+<a href="objectdialog.htm">object dialog</a>.
+</LI>
+
+<LI><B>Explore Mode</B>: If menu item is checked and currently selected item is of type IDispatch,
+a <a href="propertiesdialog.htm">properties dialog</a> will show details of this item.
+</LI>
+
+</UL>
+
+Commands accessible through buttons are:<BR>
+<UL>
+<LI>
+<B>Refresh</B>: will refresh current view. Please note that rereading collections
+sometimes doesn't work as it should.
+</LI>
+<LI><B>Put Property</B>: This command will try to update values of this property.
+</LI>
+
+</UL>
+
+<H4>Hints</H4>
+<UL>
+<LI>If a grid is shown, items may be edited in place. Click on <i>Value</i> column of item to edit.
+</LI>
+<LI>If items are of type IDispatch content of <i>Value</i> column will be default property of this type
+(if one exists, else nothing will be shown).
+This may be changed by right-clicking list header and so opening a context menu 
+which will allow to select another property to show in this column.
+</LI>
+</UL>
+
+View <a href="optionsdialog.htm#OptionsProperties">properties options</a> for a
+detailed description of options concerning <i>collection</i> dialog.
+
+<BR>&nbsp;<BR>
+
+</body>
+
+</html>

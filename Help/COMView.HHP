@@ -1,0 +1,9 @@
+
+[OPTIONS]
+Contents file=toc.hhc
+Index file=Index.hhk
+Default topic=About.htm
+Language=0x409 English (United States)
+Title=COMView Help
+
+[FILES]

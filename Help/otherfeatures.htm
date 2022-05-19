@@ -1,0 +1,78 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html">
+</head>
+
+<body>
+
+<H3>Other Features of COMView</H3>
+
+<UL>
+
+<LI>
+<B>Command Line Arguments</B>: COMView will accept the following:
+<BR>&nbsp;<BR>
+<UL>
+<LI>
+<B>COMView filename</B>: filename must include a type library resource which can be
+loaded with LoadTypLib. If that's true, a <a href="typelibdialog.htm">type library dialog</a>
+will be opened.
+</LI>
+<LI>
+<B>COMView /B &lt;/OUT:output directory&gt; filename</B>: this will cause
+COMView to run in <i>batch</i> mode. In this mode COMView will generate
+ASM include files without any user dialog. With optional parameter /OUT: directory
+for files to be generated may be set.
+</LI>
+<LI>
+<B>COMView /S filename</B>: this will cause COMView to handle file as if option
+<a href="optionsdialog.htm#OptionsGeneral">Default action is <i>Bind to File</i></a>
+is set.
+</LI>
+
+</UL>
+
+<BR>&nbsp;<BR>
+
+<LI>
+<B>Drag'n Drop</B>: COMView registers as drop source and target. Default action
+depends on option <a href="optionsdialog.htm#OptionsGeneral">Default action is <i>Bind to File</i></a>.
+Drag with right mouse button to let COMView show a context menu to select one
+of these commands:
+<UL>
+<LI>Show a <a href="typelibdialog.htm">type library dialog</a>,</LI>
+<LI>Register Server</LI>
+<LI>Unregister Server</LI>
+<LI>Bind to a File</LI>
+<LI>Create Link</LI>
+<LI>Open Storage</LI>
+<LI>Open Stream</LI>
+</UL>
+If a path exists for an item in CLSID or typelib view, this item may be dragged. Only
+clipboard format CF_HDROP is supported.
+</LI>
+
+<BR>&nbsp;<BR>
+
+<LI>
+<B>DDE Support</B>: COMView supports DDE communication, application string is <i>COMView</i>,
+topic string should be NULL or <i>system</i>
+and command which will be recognized is <i>open</i>, for example <i>[open("C:\TEMP\AsmCtrl.TLB")]</i>.
+One possibility of using DDE is to set DDEEXEC key for file extensions in registry, which 
+may avoid to start multiple instances of an application.
+So for example to make COMView your preferred type library viewer you will have to add
+these registry keys:
+<BR>&nbsp;<BR>
+<IMG SRC="ddesample.gif" Border=2>
+<BR>&nbsp;<BR>
+The same effect may be achieved more easily (although slightly slower) by setting
+option <a href="optionsdialog.htm#OptionsGeneral">Restrict COMView to one instance</i></a>
+and inserting COMView to <i>SendTo</i> folder.
+</LI>
+
+</UL>
+
+</body>
+
+</html>

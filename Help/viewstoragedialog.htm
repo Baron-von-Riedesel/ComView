@@ -1,0 +1,85 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html">
+</head>
+
+<body>
+
+<H3>View Storage Dialog</H3>
+
+This dialog will be opened by file menu commands <i>Open Storage</i>, <i>View temporary Storage</i>,
+<i>Open Stream</i> and <i>View temporary stream</i> as well as by IStorage interface viewer from inside <a href="objectdialog.htm">object dialog</a>.
+Storage or stream objects may be shown here. The upper panel will only be visible
+if object is a storage and display the elements of the object. 
+The lower panel will allow to edit the content of the
+current element. Is is enabled for stream elements only.
+
+<BR>&nbsp;<BR>
+
+<IMG SRC="viewstoragedialog.gif" Border=2><BR>&nbsp;<BR>
+
+With buttons the following functions may be achieved:<BR>
+<UL>
+<LI>
+<B>Create Object</B>: This button will be enabled if storage/stream has a CLSID assigned.
+An object will be created and initialized with the content of the storage/stream by IPersistStorage::Load
+or IPersistStreamInit::Load. Please note that for streams the CLSID is assumed to be located in the
+first 16 bytes, as it is done by function OleSaveToStream.
+</LI>
+<LI><B>Rewrite</B>: Will rewrite changes made in hex editor to the current stream. 
+</LI>
+<LI><B>Commit</B>: Will do a commit operation.
+<u>All storage objects are opened in transacted mode. That means, unless
+a commit is executed no changes are made to the underlying disk file.</u>
+For streams opened with file menu command <i>Open Stream</i> you will have
+to execute command <i>Save As</i> to make any changes permanent, since the
+IStream object is created by CreateStreamOnHGlobal and therefore is connected
+to a memory object only.
+</LI>
+<LI><B>Revert</B>: Will do a revert (or rollback) operation. Changes made since the
+last commit will be discarded.
+</LI>
+
+<BR>&nbsp;<BR>
+
+<LI><B>Refresh</B>: The view is refreshed.
+</LI>
+<LI><B>Object</B>: will open an <a href="objectdialog.htm">object dialog</a>
+for the storage/stream object itself.
+</LI>
+<LI><B>Save As</B>: Offers to save the storage/stream object with a different name. 
+</LI>
+
+</UL>
+
+For the list of elements a context menu is available as well with functions:<BR>
+<UL>
+
+<LI>
+<B>Rename</B>: rename the current item.
+</LI>
+
+<LI>
+<B>Delete</B>: will delete the current element.
+</LI>
+
+<LI>
+<B>Create Object</B>: this command will be enabled for substorages with a CLSID assigned. An
+object will be created and initialized with the content of this substorage.
+</LI>
+
+<LI>
+<B>View Properties</B>: this command will be enabled if substorage is a property storage.
+If yes, viewer for interface IPropertyStorage will be called to show name, value and type
+of these properties.
+Property sets may be cached by the OS, in which case COMView cannot access it.
+A workaround is to save the storage object with <i>Save As</i>
+command to another file, which should always work.
+</LI>
+
+</UL>
+
+</body>
+
+</html>
